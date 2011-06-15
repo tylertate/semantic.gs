@@ -1,0 +1,36 @@
+////////////
+// MIXINS //
+////////////
+
+.rounded-corners (@radius: 6px) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+.rounded-corners-individual (@tl, @tr, @br, @bl) {
+  border-radius: @tl @tr @br @bl;
+  -moz-border-radius: @tl @tr @br @bl;
+  -webkit-border-radius: @tl @tr @br @bl;
+}
+.inner-shadow (@x:0, @y:1px, @feather:1px, @color:#fff) {
+	box-shadow: inset @x @y @feather @color;
+	-moz-box-shadow: inset @x @y @feather @color;
+	-webkit-box-shadow: inset @x @y @feather @color;
+}
+.drop-shadow (@x:0, @y:1px, @feather:1px, @color:#fff) {
+	box-shadow: @x @y @feather @color;
+	-moz-box-shadow: @x @y @feather @color;
+	-webkit-box-shadow: @x @y @feather @color;
+}
+.gradient(@from: #ffffff, @to: #000000) {
+	background: ((@from + @to) / 2);
+	background: -webkit-gradient(linear, left top, left bottom, from(@from), to(@to));
+	background: -moz-linear-gradient(@from, @to);
+	filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr=%d, endColorstr=%d)", @from, @to));
+	-ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorstr=%d, endColorstr=%d)", @from, @to);
+	zoom: 1;
+}
+.opacity(@opacity: 100) {
+	opacity: @opacity;
+	filter:alpha%("(opacity = %d)",@opacity);
+}
