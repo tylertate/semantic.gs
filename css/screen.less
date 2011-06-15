@@ -27,36 +27,17 @@ body {
 // LAYOUT //
 ////////////
 
-div#viewport {
-	position: relative;
-	width: 768px;
-	height: 1024px;
-	overflow: hidden;
+header#top {
+	.column(12);
 }
-div#view-container {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 2304px;
-	height: 1024px;
-	
-	div.view {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 768px;
-		height: 1024px;
 
-		&#view-1 {
-			background-color: red;
-		}
-		&#view-2 {
-			left: 768px;
-			background-color: green;
-		}
-		&#view-3 {
-			left: 1536px;
-			background-color: blue;
-		}
-	}
+#sidebar {
+	.column(3);
+}
+#maincolumn {
+	.column(9);
+}
+
+footer#bottom {
+	.column(12);
 }
