@@ -14,27 +14,203 @@
 	<script src="js/less-1.1.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<!--[if lt IE 9]><script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	<script src="js/utilities.js" type="text/javascript" charset="utf-8"></script>
+	
+	
 </head>
 <body>
-
-	<!-- Header -->
-	<header id="top">
-		Header
-	</header>
-
-	<!-- Main Body -->	
-	<article id="maincolumn">
-		Main
-	</article>
-	<section id="sidebar">
-		Sidebar
-	</section>
+	<!-- AdPacks.com Ad Code -->
+	<script type="text/javascript">
+	(function(){
+	  var bsa = document.createElement('script');
+	     bsa.type = 'text/javascript';
+	     bsa.async = true;
+	     bsa.src = '//s3.buysellads.com/ac/bsa.js';
+	  (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+	})();
+	</script>
+	<!-- End AdPacks.com Ad Code -->
 	
-	<!-- Footer -->
+	<header id="hero">
+		<div class="center">
+			
+			<section id="overview">
+				<h1>
+					<span class="the">The</span>
+					Semantic
+					<span class="gridsystem">Grid System</span>
+				</h1>
+				<p><strong>Page layout <em>for tomorrow</em>.</strong></p>
+				<p>Set column and gutter <strong>widths</strong>, choose the number of <strong>columns</strong>, and switch between <strong>pixels</strong> and <strong>percentages</strong>.</p>
+				<p><strong><em>All without any ugly .grid_x classes in your markup.</em></strong> Oh, and did we mention it's responsive?</p>
+				<p>Brought to you by <a href="http://lesscss.org/">LESS.js</a> and the creator of <a href="http://www.1kbgrid.com/">1KB Grid</a>.</p>
+			</section>
+	
+			<section id="example">
+				<h3>HTML is for describing</h3>
+<pre>
+&lt;header&gt;...&lt;/header&gt;
+&lt;article&gt;...&lt;/article&gt;
+&lt;aside&gt;...&lt;/aside&gt;
+</pre>
+				<h3>CSS is for presenting</h3>
+<pre>
+@column-width: 60;
+@gutter-width: 20;
+@columns: 12;
+
+header { .column(12); }
+article { .column(9); }
+aside { .column(3); }
+
+@media (max-device-width: 960px) {
+   article { .column(12); }
+   aside { .column(12); }
+}
+</pre>
+			</section>
+			
+		</div>
+	</header>
+	
+	<nav id="actions">
+		<ul>
+			<li class="download"><a href="https://github.com/twigkit/tempo/zipball/master">Download</a></li>
+		</ul>
+	</nav>
+	
+	<div class="center">
+		<article id="documentation">
+
+			<a id="usage"></a>
+			<h2>Getting started</h2>
+			<h3>Add the resources to your HTML page</h3>
+			<p>Reference your LESS CSS stylesheet and the <a href="http://lesscss.org/">LESS.js</a> script on your HTML page (the stylesheet must appear <em>before</em> the script).</p>
+<pre>
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/screen.less&quot; type=&quot;text/less&quot; media=&quot;screen&quot; /&gt;
+&lt;script src=&quot;js/less-1.1.3.min.js&quot; type=&quot;text/javascript&quot; &gt;&lt;/script&gt;
+</pre>
+			<h3>Configure the CSS</h3>
+			<p>Inside your stylesheet, import the grid.less file:</p>
+<pre>
+@import 'grid.less';
+</pre>
+			<p>The Semantic Grid defaults to a 12 column, 960 pixel grid system. Customize the columns and gutters by overriding these three variables (after grid.less has been imported):</p>
+<pre>
+@column-width: 60;
+@gutter-width: 20;
+@columns: 12;
+</pre>
+			<p>To use a fluid (percentage-based) grid rather than a fixed pixels, simply override one additional variable:</p>
+<pre>
+@total-width: 100%;
+</pre>
+
+			<a id="what"></a>
+			<h2>Constructing page layouts</h2>
+			<h3>Columns: the heart of it all</h3>
+			<p>The Semantic Grid avoids presentational CSS classes in the HTML markup itself. Instead, it uses a clever parametric LESS mixin to control the layout in the stylesheet where it belongs. Below is an example of the LESS syntax, and the resulting CSS:</p>
+<pre>
+// This LESS rule...
+article {
+	.column(9);
+}
+
+// Is compiled to...
+article {
+	display: inline;
+	float: left;
+	width: 700px;
+	margin: 0 10px;
+}
+</pre>
+			<h3>Rows: convenient clearing</h3>
+			<p>It's not necessary to insert an extra element or use <code>.clearfix</code> to clear the floating columns. Columns can even be added directly within the body tag, without the need for a surrounding row element. Columns and nested rows all clear any floating elements within them using <code>overflow: hidden</code>. The body tag then clears the columns within it using the little known technique <code>body { float: left; }</code>.</p>
+			
+			<h3>Nested columns</h3>
+			<p>Columns within columns can be a @#$% when working with percentages, but the Semantic Grid conveniently does all the calculations. There's just one catch: there must be a <code>row</code> surrounding the nested columns, and the nested columns need one additional parameter:</p>
+<pre>
+&lt;section&gt;
+   &lt;header&gt;
+      &lt;h1&gt;Title&lt;/h1&gt;
+      &lt;nav&gt;...&lt;/nav&gt;
+   &lt;/header&gt;
+&lt;/section&gt;
+</pre>
+<pre>
+section {
+   .column(6);
+	
+   header {
+      .row(6);
+		
+      h1 {
+         .column(3,6);
+      }
+      nav {
+         .column(3,6);
+      }
+   }
+}
+</pre>
+			<a id="what"></a>
+			<h2>Examples</h2>
+			<h3>Fluid, but with a maximum width</h3>
+			<p>A fluid layout with a max width — such as this site itself — is easily achieved by wrapping the columns in a container.</p>
+<pre>
+&lt;div class=&quot;center&quot;&gt;
+   &lt;article&gt;...&lt;/article&gt;
+   &lt;aside&gt;...&lt;/aside&gt;
+&lt;/div&gt;
+</pre>
+<pre>
+div.center {
+   max-width: 1200px;
+   margin: 0 auto;
+}
+article {
+   .column(9);
+}
+aside {
+   .column(3);
+}
+</pre>
+			<h3>Responsive layouts using @media queries</h3>
+			<p>The Semantic Grid, with its clean separation of declarative HTML and presentational CSS, is an ideal tool for powering adaptive layouts.</p>
+<pre>
+article {
+   .column(6);
+}
+aside {
+   .column(6);
+}
+
+@media (max-device-width: 960px) {
+   article {
+      .column(12);
+   }
+   aside {
+      .column(12);
+   }
+}
+</pre>
+
+		</article>
+		<aside id="advert">
+			<div class="ad">
+				<!-- AdPacks.com Zone Code -->
+				<div id="bsap_1259205" class="bsarocks bsap_25779f8aebf23dd2e6c5b30743833cb3"></div>
+				<a href="http://adpacks.com" id="bsap_aplink">via Ad Packs</a>
+				<!-- End AdPacks.com Zone Code -->
+			</div>
+		</aside>
+
+	</div>
+
 	<footer id="bottom">
-		Footer
+		<section>
+			<p>Brought to you by the friendly guys at <a href="http://twigkit.com/">TwigKit</a>. Follow <a href="http://twitter.com/tylertate">Tyler Tate</a> on Twitter.</p>
+		</section>
 	</footer>
 
-</div>
 </body>
 </html>
