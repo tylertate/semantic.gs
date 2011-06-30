@@ -21,7 +21,7 @@
 body {
 	font-family: Helvetica, Arial sans-serif;
 	font-size: 1em;
-	-webkit-text-size-adjust: 200%;
+	-webkit-text-size-adjust: none;
 }
 h1, h2, h3 {
 	font-family: Georgia;
@@ -73,6 +73,7 @@ div#top {
 
 .center {
 	max-width: 1200px;
+	padding: 0 20px;
 	margin: 0 auto;
 	overflow: hidden;
 }
@@ -124,9 +125,16 @@ section#overview {
 			color: #333;
 		}
 	}
+	blockquote p {
+		display: block;
+		color: white;
+		text-align: center;
+		font-size: 1.5em;
+		margin: 1.25em 0;
+	}
 	p {
 		font-family: Georgia;
-		font-size: 1.45em;
+		font-size: 1.3em;
 		line-height: 1.2em;
 		color: #ccc;
 		margin-bottom: 0.75em;
@@ -155,28 +163,10 @@ section#example {
 		background-color: #333;
 	}
 }
-@media screen and (max-width: 900px) {
-	header#overview section#hero {
-		.column(12);
-	}
-	header#overview aside#example {
-		.column(12);
-		padding-top: 0;
-	}
-}
-@media screen and (max-device-width: 480px) {
-	header#overview section#hero {
-		.column(12);
-	}
-	header#overview aside#example {
-		.column(12);
-		padding-top: 0;
-	}
-}
 
 nav#actions {
 	.center;
-	margin-top: -2em;
+	margin: -2em 0;
 	
 	ul {
 		.column(6);
@@ -290,37 +280,6 @@ aside#advert {
 	}
 }
 
-@media screen and (max-width: 900px) {
-	article#usage {
-		.column(9);
-	}
-	aside#advert {
-		.column(3);
-	}
-}
-@media screen and (max-width: 700px) {
-	header#usage-nav nav {
-		display: none;
-	}
-	article#usage {
-		.column(12);
-	}
-	aside#advert {
-		display: none;
-	}
-}
-@media screen and (max-device-width: 480px) {
-	header#usage-nav nav {
-		display: none;
-	}
-	article#usage {
-		.column(12);
-	}
-	aside#advert {
-		display: none;
-	}
-}
-
 
 //////////////
 //BOTTOM NAV//
@@ -349,6 +308,7 @@ footer#bottom {
 	margin-top: 6em;
 	padding: 2em 0;
 	text-align: center;
+	line-height: 1.3em;
 			
 	a {
 		color: white;
@@ -367,3 +327,115 @@ body .one .bsa_it_ad .bsa_it_i img{padding:0;border:none;}
 body .one .bsa_it_ad .bsa_it_t{padding:6px 0 0 0;}
 body .one .bsa_it_p{display:none;}
 body #bsap_aplink,body #bsap_aplink:hover{display:block;font-size:10px;margin:8px 12px 0;text-align:left;}
+
+
+///////////////////
+// iPad Portrait //
+///////////////////
+
+@media screen and (max-device-width: 1024px) and (orientation:portrait) {
+	
+	// HERO CONTENT 
+	section#overview {
+		.column(12);
+		
+		h1 {
+			margin-top: 1em;
+		}
+		p {
+			display: inline;
+		}
+	}
+	section#example {
+		.column(12);
+		padding-top: 0;
+	}
+	
+	nav#actions ul {
+		.column(12);
+	}
+	
+	// ADVERTISEMENT
+	article#documentation {
+		.column(12);
+	}
+	aside#advert {
+		display: none;
+	}
+}
+
+
+////////////////////
+// iPad Landscape //
+////////////////////
+
+@media screen and (max-device-width: 1024px) and (orientation:landscape) {
+	section#overview p {
+		font-size: 1.2em;
+	}
+}
+
+
+//////////////////////
+// iPhone Landscape //
+//////////////////////
+
+@media screen and (max-device-width: 480px) and (orientation:landscape) {
+	section#overview {
+		.column(12);
+		
+		h1 {
+			margin: 0.66em 0;
+		}
+		p {
+			font-size: 1em;
+		}
+			
+	}
+	section#example {
+		.column(12);
+		padding-top: 0;
+	}
+	
+	nav#actions ul {
+		.column(12);
+	}
+	
+	// ADVERTISEMENT
+	article#documentation {
+		.column(12);
+	}
+}
+
+@media screen and (max-device-width: 480px) and (orientation:portrait) {
+	section#overview {
+		.column(12);
+		
+		h1 {
+			margin: 0.66em 0;
+			font-size: 3em;
+		}
+		p {
+			font-size: 1em;
+		}
+			
+	}
+	section#example {
+		.column(12);
+		padding-top: 0;
+	}
+	
+	nav#actions ul {
+		.column(12);
+	}
+	
+	// ADVERTISEMENT
+	article#documentation {
+		.column(12);
+		
+		h2 { 
+			font-size: 1.66em;
+			margin-bottom: -0.66em;
+		}
+	}
+}
