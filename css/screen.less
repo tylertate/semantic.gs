@@ -188,29 +188,10 @@ nav#actions {
 // NAV //
 /////////
 
-nav ul {
-	overflow: hidden;
-	text-align: center;
 
-	li {
-		display: inline-block;
-		list-style: none outside none;
-		margin-right: 0.5em;
 		
-		a {
-			display: block;
-			padding: 0.5em;
-			
-			&:hover {
-				background-color: #e0e0e0;
-			}
-			&:active {
-				background-color: #ccc;
-			}
-		}
-		
-		&.download {
-			a {
+		a.download {
+
 				.gradient(#ffcd67, #ffac06);
 				.inner-shadow(0,1px,0,rgba(255,255,255,0.5);
 				color: #7f5400;
@@ -227,9 +208,7 @@ nav ul {
 					text-shadow: 0 -1px 0 rgba(250,250,250,0.5);
 				}
 			}
-		}
-	}
-}
+
 
 
 ///////////
@@ -297,6 +276,7 @@ nav#actions2 {
 		}
 	}
 }
+
 
 ////////////
 // FOOTER //
@@ -406,6 +386,11 @@ body #bsap_aplink,body #bsap_aplink:hover{display:block;font-size:10px;margin:8p
 		.column(12);
 	}
 }
+
+
+/////////////////////
+// iPhone Portrait //
+/////////////////////
 
 @media screen and (max-device-width: 480px) and (orientation:portrait) {
 	section#overview {
