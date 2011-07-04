@@ -169,25 +169,28 @@ section#example {
 // DOWNLOAD BUTTON //
 /////////////////////
 		
-a#download {
+div#download {
 	margin: -2em 0;
+	.column(6);
 	
-	padding: 1em 2em;
-	.gradient(#ffcd67, #ffac06);
-	.inner-shadow(0,1px,0,rgba(255,255,255,0.5);
-	font-size: 1.33em;
-	color: #7f5400;
-	text-shadow: 0 1px 0 rgba(250,250,250,0.66);
-	text-decoration: none;
-	.rounded-corners(4px);
+	a {
+		padding: 1em 2em;
+		.gradient(#ffcd67, #ffac06);
+		.inner-shadow(0,1px,0,rgba(255,255,255,0.5);
+		font-size: 1.33em;
+		color: #7f5400;
+		text-shadow: 0 1px 0 rgba(250,250,250,0.66);
+		text-decoration: none;
+		.rounded-corners(4px);
 
-	&:hover {
-		.gradient(#ffe1a6, #ffac06);
-	}
-	&:active {
-		.gradient(#d99100, #ffcd67);
-		padding-top: 2px;
-		text-shadow: 0 -1px 0 rgba(250,250,250,0.5);
+		&:hover {
+			.gradient(#ffe1a6, #ffac06);
+		}
+		&:active {
+			.gradient(#d99100, #ffcd67);
+			padding-top: 2px;
+			text-shadow: 0 -1px 0 rgba(250,250,250,0.5);
+		}
 	}
 }
 
