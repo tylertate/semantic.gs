@@ -20,13 +20,6 @@
 // LAYOUT //
 ////////////
 
-// center the contents
-div.center {
-	max-width: 1200px;
-	margin: 0 auto;
-	overflow: hidden;
-}
-
 // header
 header#top {
 	margin-bottom: 1em;
@@ -38,4 +31,12 @@ header#top {
 }
 #sidebar {
 	.column(3);
+}
+
+@media screen and (max-width: 720px) {
+	#maincolumn,
+	#sidebar {
+		.column(12);
+		margin-bottom: 1em;
+	}
 }
