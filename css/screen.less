@@ -214,7 +214,6 @@ article#documentation {
 				.rounded-corners(4px);
 				
 				&:hover {
-					text-decoration: underline;
 					background-color: #e5e5e5;
 				}
 			}
@@ -299,6 +298,9 @@ body #bsap_aplink,body #bsap_aplink:hover{display:block;font-size:10px;margin:8p
 ///////////////////
 
 @media screen and (max-device-width: 1024px) and (orientation:portrait) {
+	.center {
+		min-width: auto;
+	}
 	
 	// HERO CONTENT 
 	section#overview {
@@ -323,6 +325,10 @@ body #bsap_aplink,body #bsap_aplink:hover{display:block;font-size:10px;margin:8p
 	// DOCUMENTATION
 	article#documentation {
 		.column(12);
+		
+		ul#examples li {
+			.column(3.333,10);
+		}
 	}
 	
 	// ADVERTISEMENT
@@ -348,6 +354,10 @@ body #bsap_aplink,body #bsap_aplink:hover{display:block;font-size:10px;margin:8p
 //////////////////////
 
 @media screen and (max-device-width: 480px) and (orientation:landscape) {
+	.center {
+		min-width: auto;
+	}
+	
 	section#overview {
 		.column(12);
 		
@@ -371,6 +381,10 @@ body #bsap_aplink,body #bsap_aplink:hover{display:block;font-size:10px;margin:8p
 	// DOCUMENTATION
 	article#documentation {
 		.column(12);
+		
+		ul#examples li {
+			.column(5,10);
+		}
 	}
 	
 	// ADVERTISEMENT
@@ -385,6 +399,10 @@ body #bsap_aplink,body #bsap_aplink:hover{display:block;font-size:10px;margin:8p
 /////////////////////
 
 @media screen and (max-device-width: 480px) and (orientation:portrait) {
+	.center {
+		min-width: auto;
+	}
+	
 	a#github-ribbon {
 		display: block;
 	}
@@ -412,6 +430,10 @@ body #bsap_aplink,body #bsap_aplink:hover{display:block;font-size:10px;margin:8p
 	
 	// DOCUMENTATION
 	article#documentation {
+		ul#examples li {
+			.column(10,10);
+		}
+		
 		.column(12);
 		
 		h2 { 

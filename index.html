@@ -105,6 +105,54 @@ aside { .column(3); }
 				<li><a href="examples/responsive/responsive.html">Responsive</a>
 			</ul>
 
+			<a id="constructing"></a>
+			<h2>Constructing page layouts</h2>
+			<h3>Columns: the heart of it all</h3>
+			<p>The Semantic Grid avoids presentational CSS classes in the HTML markup itself. Instead, it uses a clever parametric LESS mixin to control the layout in the stylesheet where it belongs. Below is an example of the LESS syntax, and the resulting CSS:</p>
+<pre>
+// This LESS rule...
+article {
+	.column(9);
+}
+
+// Is compiled to...
+article {
+	display: inline;
+	float: left;
+	width: 700px;
+	margin: 0 10px;
+}
+</pre>
+			<h3>Rows: convenient clearing</h3>
+			<p>It's not necessary to insert an extra element or use <code>.clearfix</code> to clear floating columns. Columns can even be added directly within the body tag, without the need for a surrounding row element. Columns and nested rows all clear any floating elements within them using <code>overflow: hidden</code>. The body tag then clears the columns within it using the little known technique <code>body { float: left; }</code>.</p>
+
+			<h3>Nested columns</h3>
+			<p>Columns within columns can be a @#$% when working with percentages, but the Semantic Grid conveniently does all the calculations. There's just one catch: there must be a <code>row</code> surrounding the nested columns, and the nested columns need one additional parameter:</p>
+<pre>
+&lt;section&gt;
+   &lt;header&gt;
+      &lt;h1&gt;Title&lt;/h1&gt;
+      &lt;nav&gt;...&lt;/nav&gt;
+   &lt;/header&gt;
+&lt;/section&gt;
+</pre>
+<pre>
+section {
+   .column(6);
+
+   header {
+      .row(6);
+
+      h1 {
+         .column(3,6);
+      }
+      nav {
+         .column(3,6);
+      }
+   }
+}
+</pre>
+			
 			<a id="tutorials"></a>
 			<h2>Tutorials</h2>
 			<h3>Fluid, but with a maximum width</h3>
@@ -169,54 +217,6 @@ aside {
 			<p>To use a fluid (percentage-based) grid rather than a fixed pixels, simply override one additional variable:</p>
 <pre>
 @total-width: 100%;
-</pre>
-
-			<a id="constructing"></a>
-			<h2>Constructing page layouts</h2>
-			<h3>Columns: the heart of it all</h3>
-			<p>The Semantic Grid avoids presentational CSS classes in the HTML markup itself. Instead, it uses a clever parametric LESS mixin to control the layout in the stylesheet where it belongs. Below is an example of the LESS syntax, and the resulting CSS:</p>
-<pre>
-// This LESS rule...
-article {
-	.column(9);
-}
-
-// Is compiled to...
-article {
-	display: inline;
-	float: left;
-	width: 700px;
-	margin: 0 10px;
-}
-</pre>
-			<h3>Rows: convenient clearing</h3>
-			<p>It's not necessary to insert an extra element or use <code>.clearfix</code> to clear floating columns. Columns can even be added directly within the body tag, without the need for a surrounding row element. Columns and nested rows all clear any floating elements within them using <code>overflow: hidden</code>. The body tag then clears the columns within it using the little known technique <code>body { float: left; }</code>.</p>
-			
-			<h3>Nested columns</h3>
-			<p>Columns within columns can be a @#$% when working with percentages, but the Semantic Grid conveniently does all the calculations. There's just one catch: there must be a <code>row</code> surrounding the nested columns, and the nested columns need one additional parameter:</p>
-<pre>
-&lt;section&gt;
-   &lt;header&gt;
-      &lt;h1&gt;Title&lt;/h1&gt;
-      &lt;nav&gt;...&lt;/nav&gt;
-   &lt;/header&gt;
-&lt;/section&gt;
-</pre>
-<pre>
-section {
-   .column(6);
-	
-   header {
-      .row(6);
-		
-      h1 {
-         .column(3,6);
-      }
-      nav {
-         .column(3,6);
-      }
-   }
-}
 </pre>
 
 		</article>
