@@ -113,17 +113,6 @@ section#overview {
 			}
 		}
 	}
-	figure.flourish {
-		text-align: center;
-		font-size: 0.75em;
-		margin: 1em 0;
-		
-		&:after {
-			content: '\2666  \2666  \2666';
-			letter-spacing: 0.33em;
-			color: #333;
-		}
-	}
 	blockquote p {
 		display: block;
 		color: white;
@@ -159,7 +148,7 @@ section#example {
 		font-weight: normal;
 	}
 	pre {
-		background-color: #333;
+		background-color: rgba(51,51,51,0.9);
 	}
 }
 
@@ -252,7 +241,7 @@ aside#advert {
 ////////////
 
 footer#bottom {
-	background-color: black;
+	background: black url('../images/bg-texture.jpg') repeat;
 	color: #fff;
 	margin-top: 6em;
 	padding: 2em 0;
@@ -304,10 +293,12 @@ body #bsap_aplink,body #bsap_aplink:hover{display:block;font-size:10px;margin:8p
 		.column(12);
 	}
 	
-	// ADVERTISEMENT
+	// DOCUMENTATION
 	article#documentation {
 		.column(12);
 	}
+	
+	// ADVERTISEMENT
 	aside#advert {
 		display: none;
 	}
@@ -350,9 +341,14 @@ body #bsap_aplink,body #bsap_aplink:hover{display:block;font-size:10px;margin:8p
 		.column(12);
 	}
 	
-	// ADVERTISEMENT
+	// DOCUMENTATION
 	article#documentation {
 		.column(12);
+	}
+	
+	// ADVERTISEMENT
+	aside#advert {
+		display: none;
 	}
 }
 
@@ -362,6 +358,10 @@ body #bsap_aplink,body #bsap_aplink:hover{display:block;font-size:10px;margin:8p
 /////////////////////
 
 @media screen and (max-device-width: 480px) and (orientation:portrait) {
+	a#github-ribbon {
+		display: block;
+	}
+	
 	section#overview {
 		.column(12);
 		
@@ -383,7 +383,7 @@ body #bsap_aplink,body #bsap_aplink:hover{display:block;font-size:10px;margin:8p
 		.column(12);
 	}
 	
-	// ADVERTISEMENT
+	// DOCUMENTATION
 	article#documentation {
 		.column(12);
 		
@@ -391,5 +391,10 @@ body #bsap_aplink,body #bsap_aplink:hover{display:block;font-size:10px;margin:8p
 			font-size: 1.66em;
 			margin-bottom: -0.66em;
 		}
+	}
+	
+	// ADVERTISEMENT
+	aside#advert {
+		display: none;
 	}
 }
