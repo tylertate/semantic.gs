@@ -15,6 +15,7 @@
 
 .center {
 	max-width: 1200px;
+	min-width: 960px;
 	padding: 0 20px;
 	margin: 0 auto;
 	overflow: hidden;
@@ -196,21 +197,25 @@ article#documentation {
 	
 	ul#examples {
 		.row(10);
+		margin-top: 1em;
 		
 		li {
 			.column(2,10);
-			padding: 2em 0;
-			text-align: center;
-			background-color: #f0f0f0;
-			color: #666;
-			font-size: 1.1em;
-			.rounded-corners(4px);
-			
+
 			a {
+				display: block;
+				padding: 2em 0;
+				font-size: 1.1em;
+				text-align: center;
 				text-decoration: none;
+				text-shadow: 0 1px 0 white;
+				background-color: #f0f0f0;
+				color: #666;
+				.rounded-corners(4px);
 				
 				&:hover {
 					text-decoration: underline;
+					background-color: #e5e5e5;
 				}
 			}
 		}

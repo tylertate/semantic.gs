@@ -100,12 +100,54 @@ aside { .column(3); }
 			<ul id="examples">
 				<li><a href="examples/fixed/fixed.html">Fixed Layout</a>
 				<li><a href="examples/fluid/fluid.html">Fluid Layout</a>
-				<li><a href="examples/max-width/max-width.html">Maximum-width</a>
+				<li><a href="examples/maxwidth/maxwidth.html">Maximum-width</a>
 				<li><a href="examples/nested/nested.html">Nested Columns</a>
 				<li><a href="examples/responsive/responsive.html">Responsive</a>
 			</ul>
 
-			<a id="usage"></a>
+			<a id="tutorials"></a>
+			<h2>Tutorials</h2>
+			<h3>Fluid, but with a maximum width</h3>
+			<p>A fluid layout with a max width — such as this site itself — is easily achieved by wrapping the columns in a container.</p>
+<pre>
+&lt;div class=&quot;center&quot;&gt;
+   &lt;article&gt;...&lt;/article&gt;
+   &lt;aside&gt;...&lt;/aside&gt;
+&lt;/div&gt;
+</pre>
+<pre>
+div.center {
+   max-width: 1200px;
+   margin: 0 auto;
+}
+article {
+   .column(9);
+}
+aside {
+   .column(3);
+}
+</pre>
+			<h3>Responsive layouts using @media queries</h3>
+			<p>The Semantic Grid, with its clean separation of declarative HTML and presentational CSS, is an ideal tool for powering adaptive layouts.</p>
+<pre>
+article {
+   .column(6);
+}
+aside {
+   .column(6);
+}
+
+@media (max-device-width: 960px) {
+   article {
+      .column(12);
+   }
+   aside {
+      .column(12);
+   }
+}
+</pre>
+
+			<a id="gettingstarted"></a>
 			<h2>Getting started</h2>
 			<h3>Add the resources to your HTML page</h3>
 			<p>Reference your LESS CSS stylesheet and the <a href="http://lesscss.org/">LESS.js</a> script on your HTML page (the stylesheet must appear <em>before</em> the script).</p>
@@ -173,47 +215,6 @@ section {
       nav {
          .column(3,6);
       }
-   }
-}
-</pre>
-			<a id="tutorials"></a>
-			<h2>Tutorials</h2>
-			<h3>Fluid, but with a maximum width</h3>
-			<p>A fluid layout with a max width — such as this site itself — is easily achieved by wrapping the columns in a container.</p>
-<pre>
-&lt;div class=&quot;center&quot;&gt;
-   &lt;article&gt;...&lt;/article&gt;
-   &lt;aside&gt;...&lt;/aside&gt;
-&lt;/div&gt;
-</pre>
-<pre>
-div.center {
-   max-width: 1200px;
-   margin: 0 auto;
-}
-article {
-   .column(9);
-}
-aside {
-   .column(3);
-}
-</pre>
-			<h3>Responsive layouts using @media queries</h3>
-			<p>The Semantic Grid, with its clean separation of declarative HTML and presentational CSS, is an ideal tool for powering adaptive layouts.</p>
-<pre>
-article {
-   .column(6);
-}
-aside {
-   .column(6);
-}
-
-@media (max-device-width: 960px) {
-   article {
-      .column(12);
-   }
-   aside {
-      .column(12);
    }
 }
 </pre>
