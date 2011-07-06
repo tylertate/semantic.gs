@@ -96,6 +96,14 @@ aside { .column(3); }
 	
 	<div class="center">
 		<article id="documentation">
+			<h2>Examples</h2>
+			<ul id="examples">
+				<li><a href="examples/fixed/fixed.html"><span>View the</span> Fixed <span>example</span></a>
+				<li><a href="examples/fluid/fluid.html"><span>View the</span> Fluid <span>example</span></a>
+				<li><a href="examples/max-width/max-width.html"><span>View the</span> Max-width <span>example</span></a>
+				<li><a href="examples/nested/nested.html"><span>View the</span> Nested <span>example</span></a>
+				<li><a href="examples/responsive/responsive.html"><span>View the</span> Responsive <span>example</span></a>
+			</ul>
 
 			<a id="usage"></a>
 			<h2>Getting started</h2>
@@ -140,7 +148,7 @@ article {
 }
 </pre>
 			<h3>Rows: convenient clearing</h3>
-			<p>It's not necessary to insert an extra element or use <code>.clearfix</code> to clear the floating columns. Columns can even be added directly within the body tag, without the need for a surrounding row element. Columns and nested rows all clear any floating elements within them using <code>overflow: hidden</code>. The body tag then clears the columns within it using the little known technique <code>body { float: left; }</code>.</p>
+			<p>It's not necessary to insert an extra element or use <code>.clearfix</code> to clear floating columns. Columns can even be added directly within the body tag, without the need for a surrounding row element. Columns and nested rows all clear any floating elements within them using <code>overflow: hidden</code>. The body tag then clears the columns within it using the little known technique <code>body { float: left; }</code>.</p>
 			
 			<h3>Nested columns</h3>
 			<p>Columns within columns can be a @#$% when working with percentages, but the Semantic Grid conveniently does all the calculations. There's just one catch: there must be a <code>row</code> surrounding the nested columns, and the nested columns need one additional parameter:</p>
@@ -169,7 +177,7 @@ section {
 }
 </pre>
 			<a id="what"></a>
-			<h2>Examples</h2>
+			<h2>Tutorials</h2>
 			<h3>Fluid, but with a maximum width</h3>
 			<p>A fluid layout with a max width — such as this site itself — is easily achieved by wrapping the columns in a container.</p>
 <pre>
