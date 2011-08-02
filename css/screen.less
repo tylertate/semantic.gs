@@ -84,10 +84,12 @@ div#top {
 ////////////
 
 header#hero {
+	position: relative;
 	background: black url('../images/bg-texture.jpg') repeat;
 	color: white;
 	overflow: visible;
 	padding-bottom: 2em;
+	z-index: 50;
 }
 
 section#overview {
@@ -159,7 +161,9 @@ section#example {
 /////////////////////
 		
 nav {
+	position: relative;
 	margin: -2em 0;
+	z-index: 75;
 	
 	div#download {
 		.column(6);
@@ -193,7 +197,9 @@ nav {
 ///////////
 
 article#documentation {
+	position: relative;
 	.column(10);
+	z-index: 25;
 	
 	ul#examples {
 		.row(10);
