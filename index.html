@@ -102,78 +102,76 @@ aside { .column(3); }
 				<li><a href="examples/responsive/responsive.html">Responsive</a>
 			</ul>
 
-			<a id="constructing"></a>
-			<h2>Constructing page layouts</h2>
-			<h3>Columns: the heart of it all</h3>
-			<p>The Semantic Grid avoids presentational CSS classes in the HTML markup itself. Instead, it uses a clever parametric LESS mixin to control the layout in the stylesheet where it belongs. Below is an example of the LESS syntax, and the resulting CSS:</p>
+			<h2>Getting Started</h2>
+			<h3>1. Add the resources to your HTML page</h3>
+			<p>Reference your LESS CSS stylesheet and the <a href="http://lesscss.org/">LESS.js</a> script on your HTML page (the stylesheet must appear <em>before</em> the script).</p>
 <pre>
-// This LESS rule...
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/screen.less&quot; type=&quot;text/less&quot; media=&quot;screen&quot; /&gt;
+&lt;script src=&quot;js/less-1.1.3.min.js&quot; type=&quot;text/javascript&quot; &gt;&lt;/script&gt;
+</pre>
+			<h3>3. Configure the LESS variables</h3>
+			<p>Inside your stylesheet, import the grid.less file:</p>
+<pre>
+@import 'grid.less';
+</pre>
+			<p>The Semantic Grid defaults to a 12 column, 960 pixel grid system. Customize the columns and gutters by overriding these three variables (<em>after</em> the grid.less import has been declared):</p>
+<pre>
+@column-width: 60;
+@gutter-width: 20;
+@columns: 12;
+</pre>
+			<p>To use a fluid (percentage-based) grid rather than a fixed pixels, simply override one additional variable:</p>
+<pre>
+@total-width: 100%;
+</pre>
+
+			<h2>Basic Usage</h2>
+			<p>Consider two HTML elements:</p>
+<pre>
+&lt;body&gt;
+   &lt;article&gt;Main&lt;/article&gt;
+   &lt;section&gt;Sidebar&lt;/section&gt;
+&lt;/body&gt;
+</pre>
+			<p>To position these elements side by side side, provide the desired number of grid units to the <code>.column()</code> mixin:</p>
+<pre>
+@import 'grid.less';
+
+@columns: 12;
+@column-width: 60;
+@gutter-width: 20;
+
 article {
 	.column(9);
 }
-
-// Is compiled to...
-article {
-	display: inline;
-	float: left;
-	width: 700px;
-	margin: 0 10px;
+sidebar {
+	.column(3);
 }
 </pre>
-			<h3>Rows: convenient clearing</h3>
-			<p>It's not necessary to insert an extra element or use <code>.clearfix</code> to clear floating columns. Columns can even be added directly within the body tag, without the need for a surrounding row element. Columns and nested rows all clear any floating elements within them using <code>overflow: hidden</code>. The body tag then clears the columns within it using the little known technique <code>body { float: left; }</code>.</p>
+			<p><a href="http://semantic.gs/examples/fixed/fixed.html">The result</a> is two side-by-side columns with the original HTML remaining uncompromised.</p>
 
-			<h3>Nested columns</h3>
-			<p>Columns within columns can be a @#$% when working with percentages, but the Semantic Grid conveniently does all the calculations. There's just one catch: there must be a <code>row</code> surrounding the nested columns, and the nested columns need one additional parameter:</p>
-<pre>
-&lt;section&gt;
-   &lt;header&gt;
-      &lt;h1&gt;Title&lt;/h1&gt;
-      &lt;nav&gt;...&lt;/nav&gt;
-   &lt;/header&gt;
-&lt;/section&gt;
-</pre>
-<pre>
-section {
-   .column(6);
-
-   header {
-      .row(6);
-
-      h1 {
-         .column(3,6);
-      }
-      nav {
-         .column(3,6);
-      }
-   }
-}
-</pre>
-			
 			<a id="tutorials"></a>
 			<h2>Tutorials</h2>
-			<h3>Fluid, but with a maximum width</h3>
-			<p>A fluid layout with a max width — such as this site itself — is easily achieved by wrapping the columns in a container.</p>
+			<h3>Fluid layouts</h3>
+			<p>Semantic.gs can work in either pixels or percentages. While it defaults to pixels, <a href="http://semantic.gs/examples/fluid/fluid.html">fluid layouts</a> can be achieved by adding one additional variable: <code>@total-width: 100%;</code>.</p>
 <pre>
-&lt;div class=&quot;center&quot;&gt;
-   &lt;article&gt;...&lt;/article&gt;
-   &lt;aside&gt;...&lt;/aside&gt;
-&lt;/div&gt;
-</pre>
-<pre>
-div.center {
-   max-width: 1200px;
-   margin: 0 auto;
-}
+@import 'grid.less';
+
+@columns: 12;
+@column-width: 60;
+@gutter-width: 20;
+
+@total-width: 100%; // Switch from pixels to percentages
+
 article {
-   .column(9);
+	.column(9);
 }
-aside {
-   .column(3);
+sidebar {
+	.column(3);
 }
-</pre>
-			<h3>Responsive layouts using @media queries</h3>
-			<p>The Semantic Grid, with its clean separation of declarative HTML and presentational CSS, is an ideal tool for powering adaptive layouts.</p>
+</pre>		
+			<h3>Responsive layouts</h3>
+			<p>The Semantic Grid, with its clean separation between markup and presentation, is an ideal tool for powering <a href="http://semantic.gs/examples/responsive/responsive.html">adaptive layouts</a> using @media queries.</p>
 <pre>
 article {
    .column(6);
@@ -191,31 +189,58 @@ aside {
    }
 }
 </pre>
+			<h3>Nested columns</h3>
+			<p>Multiple levels of <a href="http://semantic.gs/examples/nested/nested.html">nested columns</a> are no problem — even for fluid layouts. Consider this HTML structure:</p>		
+<pre>
+&lt;article&gt;
+   &lt;ul&gt;
+      &lt;li&gt;1&lt;/li&gt;
+      &lt;li&gt;2&lt;/li&gt;
+      &lt;li&gt;3&lt;/li&gt;
+      &lt;li&gt;4&lt;/li&gt;
+      &lt;li&gt;5&lt;/li&gt;
+      &lt;li&gt;6&lt;/li&gt;
+   &lt;/ul&gt;
+&lt;/article&gt;
 
-			<a id="gettingstarted"></a>
-			<h2>Getting started</h2>
-			<h3>Add the resources to your HTML page</h3>
-			<p>Reference your LESS CSS stylesheet and the <a href="http://lesscss.org/">LESS.js</a> script on your HTML page (the stylesheet must appear <em>before</em> the script).</p>
-<pre>
-&lt;link rel=&quot;stylesheet&quot; href=&quot;css/screen.less&quot; type=&quot;text/less&quot; media=&quot;screen&quot; /&gt;
-&lt;script src=&quot;js/less-1.1.3.min.js&quot; type=&quot;text/javascript&quot; &gt;&lt;/script&gt;
+&lt;aside&gt;...&lt;/aside&gt;
 </pre>
-			<h3>Configure the CSS</h3>
-			<p>Inside your stylesheet, import the grid.less file:</p>
+			<p>A <code>.row()</code> mixin must be applied to the containing element of the nested columns. That mixin should contain the number of grid units of its parent (9, in this case), and the same number must be passed into the nested columns as a second parameter (<code>.column(4,9)</code> in the example below). Note that This is the most complicate feature of Semantic.gs, but nested columns in fluid layouts aren't generally supported by any other grid system, so one additional parameter is a small price to pay.</p>
 <pre>
-@import 'grid.less';
-</pre>
-			<p>The Semantic Grid defaults to a 12 column, 960 pixel grid system. Customize the columns and gutters by overriding these three variables (after grid.less has been imported):</p>
-<pre>
-@column-width: 60;
-@gutter-width: 20;
-@columns: 12;
-</pre>
-			<p>To use a fluid (percentage-based) grid rather than a fixed pixels, simply override one additional variable:</p>
-<pre>
-@total-width: 100%;
-</pre>
+article {
+	.column(9);
 
+	ul {
+		.row(9);
+
+		li {
+			.column(4,9);
+		}
+	}
+}
+aside {
+	.column(3);
+}
+</pre>
+			<h2>How It Works</h2>
+			<h3>Powered by LESS mixins</h3>
+			<p>The Semantic Grid avoids presentational CSS classes in the HTML markup itself. Instead, it uses a parametric <a href="http://lesscss.org/#-mixins">LESS mixin</a> to control the layout <em>in the stylesheet</em> where it belongs. Below is an example of the LESS syntax, and the resulting CSS (which is remarkably similar to the <a href="http://1kbgrid.com/">1KB CSS Grid</a>):</p>
+<pre>
+// This LESS rule...
+article {
+	.column(9);
+}
+
+// Is compiled to...
+article {
+	display: inline;
+	float: left;
+	width: 700px;
+	margin: 0 10px;
+}
+</pre>
+			<h3>Painless float clearing</h3>
+			<p>It's not necessary to insert an extra element or add a <code>.clearfix</code> class to clear floating columns. Columns and nested rows all clear any floating elements within them using the <code>overflow: hidden</code> method. Columns can even be added directly within the body tag without the need for a surrounding row element. It doesn't get any simpler.</p>
 		</article>
 		<aside id="advert">
 			<div class="ad">
