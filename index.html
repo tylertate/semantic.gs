@@ -109,7 +109,7 @@ aside { .column(3); }
 &lt;link rel=&quot;stylesheet&quot; href=&quot;css/screen.less&quot; type=&quot;text/less&quot; media=&quot;screen&quot; /&gt;
 &lt;script src=&quot;js/less-1.1.3.min.js&quot; type=&quot;text/javascript&quot; &gt;&lt;/script&gt;
 </pre>
-			<h3>3. Configure the LESS variables</h3>
+			<h3>2. Configure the LESS variables</h3>
 			<p>Inside your stylesheet, import the grid.less file:</p>
 <pre>
 @import 'grid.less';
@@ -126,6 +126,7 @@ aside { .column(3); }
 </pre>
 
 			<h2>Basic Usage</h2>
+			<h3>The HTML</h3>
 			<p>Consider two HTML elements:</p>
 <pre>
 &lt;body&gt;
@@ -133,6 +134,7 @@ aside { .column(3); }
    &lt;section&gt;Sidebar&lt;/section&gt;
 &lt;/body&gt;
 </pre>
+			<h3>The stylesheet</h3>
 			<p>To position these elements side by side side, provide the desired number of grid units to the <code>.column()</code> mixin:</p>
 <pre>
 @import 'grid.less';
@@ -142,10 +144,10 @@ aside { .column(3); }
 @gutter-width: 20;
 
 article {
-	.column(9);
+   .column(9);
 }
 sidebar {
-	.column(3);
+   .column(3);
 }
 </pre>
 			<p><a href="http://semantic.gs/examples/fixed/fixed.html">The result</a> is two side-by-side columns with the original HTML remaining uncompromised.</p>
@@ -164,10 +166,10 @@ sidebar {
 @total-width: 100%; // Switch from pixels to percentages
 
 article {
-	.column(9);
+   .column(9);
 }
 sidebar {
-	.column(3);
+   .column(3);
 }
 </pre>		
 			<h3>Responsive layouts</h3>
@@ -208,18 +210,18 @@ aside {
 			<p>A <code>.row()</code> mixin must be applied to the containing element of the nested columns. That mixin should contain the number of grid units of its parent (9, in this case), and the same number must be passed into the nested columns as a second parameter (<code>.column(4,9)</code> in the example below). Note that This is the most complicate feature of Semantic.gs, but nested columns in fluid layouts aren't generally supported by any other grid system, so one additional parameter is a small price to pay.</p>
 <pre>
 article {
-	.column(9);
+   .column(9);
 
-	ul {
-		.row(9);
+   ul {
+      .row(9);
 
-		li {
-			.column(4,9);
-		}
-	}
+      li {
+         .column(4,9);
+      }
+   }
 }
 aside {
-	.column(3);
+   .column(3);
 }
 </pre>
 			<h2>How It Works</h2>
@@ -228,15 +230,15 @@ aside {
 <pre>
 // This LESS rule...
 article {
-	.column(9);
+   .column(9);
 }
 
 // Is compiled to...
 article {
-	display: inline;
-	float: left;
-	width: 700px;
-	margin: 0 10px;
+   display: inline;
+   float: left;
+   width: 700px;
+   margin: 0 10px;
 }
 </pre>
 			<h3>Painless float clearing</h3>
