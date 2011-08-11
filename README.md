@@ -7,7 +7,7 @@ It lives on the web at [Semantic.gs](http://semantic.gs/).
 If you spot any issues or have ideas for improvement, feel free to [file a ticket](https://github.com/twigkit/semantic.gs/issues) or fork on [GitHub](https://github.com/twigkit/semantic.gs) and issue a pull request.
 
 #License
-Licensed under Apache 2.0. See [LICENSE](https://github.com/twigkit/semantic.gs/blob/master/LICENSE)
+Licensed under Apache 2.0. See [LICENSE](https://github.com/twigkit/semantic.gs/blob/master/LICENSE.txt)
 
 #Created by
 The Semantic Grid System was built by [Tyler Tate](http://twitter.com/tylertate/) at [TwigKit](http://twigkit.com/).
