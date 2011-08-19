@@ -3,7 +3,10 @@
 @gutter-width: 20;
 @columns: 12;
 
-// Set @total-width to 100% for a fluid layout
+// Utility variable — you should never need to modify this
+@_gridsystem-width: (@column-width*@columns) + (@gutter-width*@columns) * 1px;
+
+// Change @total-width to 100% for a fluid layout
 @total-width: @_gridsystem-width;
 
 
@@ -11,10 +14,6 @@
 // GRID //
 //////////
 
-// Utility variable — you should never need to modify this
-@_gridsystem-width: (@column-width*@columns) + (@gutter-width*@columns) * 1px;
-
-// 
 body {
 	width: 100%;
 	float: left;
