@@ -183,6 +183,7 @@ header#hero {
 section#overview {
   display: inline;
   float: left;
+  overflow: hidden;
   width: 47.91666666666667%;
   margin: 0 1.0416666666666665%;
 }
@@ -230,6 +231,7 @@ section#overview p a {
 section#example {
   display: inline;
   float: left;
+  overflow: hidden;
   width: 47.91666666666667%;
   margin: 0 1.0416666666666665%;
   padding-top: 2em;
@@ -249,6 +251,7 @@ nav {
 nav div#download {
   display: inline;
   float: left;
+  overflow: hidden;
   width: 47.91666666666667%;
   margin: 0 1.0416666666666665%;
   text-align: center;
@@ -294,6 +297,7 @@ article#documentation {
   position: relative;
   display: inline;
   float: left;
+  overflow: hidden;
   width: 81.25%;
   margin: 0 1.0416666666666665%;
   z-index: 25;
@@ -307,6 +311,7 @@ article#documentation ul#examples {
 article#documentation ul#examples li {
   display: inline;
   float: left;
+  overflow: hidden;
   width: 17.5%;
   margin: 0 1.25%;
 }
@@ -362,6 +367,7 @@ article#documentation p {
 aside#advert {
   display: inline;
   float: left;
+  overflow: hidden;
   width: 14.583333333333334%;
   margin: 0 1.0416666666666665%;
 }
@@ -423,6 +429,7 @@ body #bsap_aplink, body #bsap_aplink:hover {
   section#overview {
     display: inline;
     float: left;
+    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
   }
@@ -435,6 +442,7 @@ body #bsap_aplink, body #bsap_aplink:hover {
   section#example {
     display: inline;
     float: left;
+    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
     padding-top: 0;
@@ -442,18 +450,21 @@ body #bsap_aplink, body #bsap_aplink:hover {
   nav div#download {
     display: inline;
     float: left;
+    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
   }
   article#documentation {
     display: inline;
     float: left;
+    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
   }
   article#documentation ul#examples li {
     display: inline;
     float: left;
+    overflow: hidden;
     width: 30.829999999999995%;
     margin: 0 1.25%;
   }
@@ -473,6 +484,7 @@ body #bsap_aplink, body #bsap_aplink:hover {
   section#overview {
     display: inline;
     float: left;
+    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
   }
@@ -485,6 +497,7 @@ body #bsap_aplink, body #bsap_aplink:hover {
   section#example {
     display: inline;
     float: left;
+    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
     padding-top: 0;
@@ -492,18 +505,21 @@ body #bsap_aplink, body #bsap_aplink:hover {
   nav div#download {
     display: inline;
     float: left;
+    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
   }
   article#documentation {
     display: inline;
     float: left;
+    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
   }
   article#documentation ul#examples li {
     display: inline;
     float: left;
+    overflow: hidden;
     width: 47.91666666666667%;
     margin: 0 1.0416666666666665%;
   }
@@ -521,6 +537,7 @@ body #bsap_aplink, body #bsap_aplink:hover {
   section#overview {
     display: inline;
     float: left;
+    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
   }
@@ -534,6 +551,7 @@ body #bsap_aplink, body #bsap_aplink:hover {
   section#example {
     display: inline;
     float: left;
+    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
     padding-top: 0;
@@ -541,18 +559,21 @@ body #bsap_aplink, body #bsap_aplink:hover {
   nav div#download {
     display: inline;
     float: left;
+    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
   }
   article#documentation {
     display: inline;
     float: left;
+    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
   }
   article#documentation ul#examples li {
     display: inline;
     float: left;
+    overflow: hidden;
     width: 47.91666666666667%;
     margin: 0 1.0416666666666665%;
   }
