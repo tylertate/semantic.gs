@@ -209,7 +209,7 @@ aside {
 
 &lt;aside&gt;...&lt;/aside&gt;
 </pre>
-			<p>A <code>.row()</code> mixin must be applied to the containing element of the nested columns. That mixin should contain the number of grid units of its parent (9, in this case), and the same number must be passed into the nested columns as a second parameter (<code>.column(4,9)</code> in the example below). Note that This is the most complicate feature of Semantic.gs, but nested columns in fluid layouts aren't generally supported by any other grid system, so one additional parameter is a small price to pay.</p>
+			<p>A <code>.row()</code> mixin must be applied to the containing element of the nested columns. That mixin should contain the number of grid units of its parent (9, in this case), and the same number must be passed into the nested columns as a second parameter (<code>.column(4,9)</code> in the example below). Note that This is the most complicated feature of Semantic.gs, but nested columns in fluid layouts aren't generally supported by any other grid system, so one additional parameter is a small price to pay.</p>
 <pre>
 article {
    .column(9);
@@ -244,7 +244,7 @@ article {
 }
 </pre>
 			<h3>Painless float clearing</h3>
-			<p>It's not necessary to insert an extra element or add a <code>.clearfix</code> class to clear floating columns. Columns and nested rows all clear any floating elements within them using the <code>overflow: hidden</code> method. Columns can even be added directly within the body tag without the need for a surrounding row element. It doesn't get any simpler.</p>
+			<p>It's not necessary to insert an extra element or add a <code>.clearfix</code> class to clear floating columns. Columns and nested rows all clear any floating elements within them using the <code>overflow: hidden</code> method. Columns can even be added directly within the body tag without the need for a surrounding row element.</p>
 			
 			<h2>Using in Production</h2>
 			<h3>Switching from client-side to desktop or server compiling</h3>
