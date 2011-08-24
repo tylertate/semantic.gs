@@ -1,0 +1,22 @@
+@import url(../../css/reset.css);
+@import url(../../css/demo.css);
+body {
+  width: 100%;
+  float: left; }
+
+header#top {
+  margin-bottom: 1em; }
+
+#maincolumn {
+  display: inline;
+  float: left;
+  overflow: hidden;
+  width: 72.917%;
+  margin: 0 1.042%; }
+
+#sidebar {
+  display: inline;
+  float: left;
+  overflow: hidden;
+  width: 22.917%;
+  margin: 0 1.042%; }
