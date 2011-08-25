@@ -1,6 +1,6 @@
 @import '../../css/reset';
-@import '../../css/demo';
 @import '../../css/grid';
+@import '../../css/demo';
 
 
 //////////
@@ -20,14 +20,29 @@ $total-width: 100%;
 // LAYOUT //
 ////////////
 
+// center the contents
+div.center {
+	margin: 0 auto;
+	overflow: hidden;
+}
+
 // header
 header#top {
 	margin-bottom: 1em;
 }
 
-// main column & sidebar
+// main column
 #maincolumn {
 	@include column(9);
+	
+	ul#boxes {
+		@include row(9);
+
+		li {
+			@include column(3,9);
+			margin-bottom: 1em;
+		}
+	}
 }
 #sidebar {
 	@include column(3);

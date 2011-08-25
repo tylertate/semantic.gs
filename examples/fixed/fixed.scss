@@ -1,6 +1,6 @@
 @import '../../css/reset';
-@import '../../css/demo';
 @import '../../css/grid';
+@import '../../css/demo';
 
 
 //////////
@@ -9,23 +9,31 @@
 
 // Specify the number of columns and set column and gutter widths
 $columns: 12;
-$column-width: 60;
-$gutter-width: 20;
+$column-width: 60px;
+$gutter-width: 20px;
 
-// Remove the definition below for a pixel-based layout
-$total-width: 100%;
+// Uncomment the definition below for a percentage-based layout
+// @total-width: 100%;
 
 
 ////////////
 // LAYOUT //
 ////////////
 
+// center the contents
+div.center {
+	width: 960px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
 // header
 header#top {
+	@include column(12);
 	margin-bottom: 1em;
 }
 
-// main column & sidebar
+// main and sidebar
 #maincolumn {
 	@include column(9);
 }

@@ -13,4 +13,4 @@ Licensed under Apache 2.0. See [LICENSE](https://github.com/twigkit/semantic.gs/
 The Semantic Grid System was built by [Tyler Tate](http://twitter.com/tylertate/) at [TwigKit](http://twigkit.com/).
 
 #Ported to SASS by
-The SASS port was made by [Hugues Lismonde](http://twitter.com/hlidotbe/) at [EPIC](http://epic.net)
+The initial SASS port was made by [Bobby Marko](http://bobby-marko.com/) with corrections and additions from [Hugues Lismonde](http://twitter.com/hlidotbe/)

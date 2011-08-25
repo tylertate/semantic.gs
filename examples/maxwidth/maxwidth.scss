@@ -1,6 +1,6 @@
 @import '../../css/reset';
-@import '../../css/demo';
 @import '../../css/grid';
+@import '../../css/demo';
 
 
 //////////
@@ -19,6 +19,13 @@ $total-width: 100%;
 ////////////
 // LAYOUT //
 ////////////
+
+// center the contents
+div.center {
+	max-width: 960px;
+	margin: 0 auto;
+	overflow: hidden;
+}
 
 // header
 header#top {

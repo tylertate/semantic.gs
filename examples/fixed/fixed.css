@@ -45,6 +45,10 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+body {
+  width: 100%;
+  float: left; }
+
 header#top {
   background-color: black; }
 
@@ -73,23 +77,29 @@ ul#boxes li {
   background-color: #e5e5e5;
   text-align: center; }
 
-body {
-  width: 100%;
-  float: left; }
+div.center {
+  width: 960px;
+  margin: 0 auto;
+  overflow: hidden; }
 
 header#top {
+  display: inline;
+  float: left;
+  overflow: hidden;
+  width: 940px;
+  margin: 0 10px;
   margin-bottom: 1em; }
 
 #maincolumn {
   display: inline;
   float: left;
   overflow: hidden;
-  width: 72.917%;
-  margin: 0 1.042%; }
+  width: 700px;
+  margin: 0 10px; }
 
 #sidebar {
   display: inline;
   float: left;
   overflow: hidden;
-  width: 22.917%;
-  margin: 0 1.042%; }
+  width: 220px;
+  margin: 0 10px; }
