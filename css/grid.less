@@ -26,10 +26,10 @@ body {
 	margin: 0 @total-width*(((@gutter-width*.5)/@_gridsystem-width)*-1);
 }
 
-.column(@x,@columns:@columns) {
+.column(@x,@total-spacing:0,@columns:@columns) {
 	display: inline;
 	float: left;
 	overflow: hidden;
-	width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @_gridsystem-width);
+	width: @total-width*((((@gutter-width+@column-width)*@x)-(@gutter-width+@total-spacing)) / @_gridsystem-width);
 	margin: 0 @total-width*((@gutter-width*.5)/@_gridsystem-width);
 }
