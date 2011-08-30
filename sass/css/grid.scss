@@ -1,0 +1,38 @@
+// Defaults which you can freely override
+$column-width: 60px;
+$gutter-width: 20px;
+$columns: 12;
+
+// Set $total-width to 100% for a fluid layout
+$total-width: ($column-width*$columns) + ($gutter-width*$columns);
+
+
+//////////
+// GRID //
+//////////
+
+body {
+	width: 100%;
+	float: left;
+}
+
+@mixin row($columns:$columns) {
+  // Utility variable — you should never need to modify this
+  $_gridsystem-width: ($column-width*$columns) + ($gutter-width*$columns);
+
+	display: inline-block;
+	overflow: hidden;
+	width: $total-width * ( ( $gutter-width + $_gridsystem-width) / $_gridsystem-width );
+	margin: 0 $total-width*((($gutter-width*.5)/$_gridsystem-width)*-1);
+}
+
+@mixin column($x,$columns:$columns) {
+  // Utility variable — you should never need to modify this
+  $_gridsystem-width: ($column-width*$columns) + ($gutter-width*$columns);
+
+	display: inline;
+	float: left;
+	overflow: hidden;
+	width: $total-width * ( ( ( ( $gutter-width + $column-width ) * $x ) - $gutter-width ) / $_gridsystem-width );
+	margin: 0 $total-width*(($gutter-width*.5)/$_gridsystem-width);
+}
