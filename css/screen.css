@@ -180,6 +180,16 @@ header#hero {
   padding-bottom: 2em;
   z-index: 50;
 }
+a#github-ribbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 149px;
+  height: 149px;
+  border: 0;
+  z-index: 51;
+  background: transparent url('images/github-ribbon.png') no-repeat;
+}
 section#overview {
   display: inline;
   float: left;
