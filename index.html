@@ -7,7 +7,7 @@
 	<title>The Semantic Grid System</title>
 
     <!-- CSS -->
-	<link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" media="screen" />
 	
     <!-- JavaScript -->
 	<script src="/js/less-1.1.3.min.js" type="text/javascript" charset="utf-8"></script>
@@ -52,8 +52,8 @@
 				</h1>
 				<blockquote><p>Page layout <em>for tomorrow</em>.</p></blockquote>
 				<p>Set column and gutter <strong>widths</strong>, choose the number of <strong>columns</strong>, and switch between <strong>pixels</strong> and <strong>percentages</strong>.</p>
-				<p><strong><em>All without any ugly .grid_x classes in your markup.</em></strong> Oh, and did we mention it's responsive?</p>
-				<p>Brought to you by <a href="http://lesscss.org/">LESS.js</a> and the creator of <a href="http://www.1kbgrid.com/">1KB Grid</a>.</p>
+				<p><strong><em>All without any .grid_x classes in your markup.</em></strong> Oh, and did we mention it's responsive?</p>
+				<p>Runs on <a href="http://lesscss.org/">LESS</a>, <a href="http://sass-lang.com/">SCSS</a>, or <a href="http://learnboost.github.com/stylus/">Stylus</a>. Read up on <a href="http://coding.smashingmagazine.com/2011/08/23/the-semantic-grid-system-page-layout-for-tomorrow/">Smashing Mag</a>.</p>
 			</section>
 	
 			<section id="example">
@@ -86,7 +86,7 @@ aside { .column(3); }
 	<nav>
 		<div class="center">
 			<div id="download">
-				<a href="https://github.com/twigkit/semantic.gs/zipball/master">Download</a>
+				<a href="https://github.com/twigkit/semantic.gs/zipball/master">Download 1.1</a>
 			</div>
 		</div>
 	</nav>
@@ -209,7 +209,7 @@ aside {
 
 &lt;aside&gt;...&lt;/aside&gt;
 </pre>
-			<p>A <code>.row()</code> mixin must be applied to the containing element of the nested columns. That mixin should contain the number of grid units of its parent (9, in this case), and the same number must be passed into the nested columns as a second parameter (<code>.column(4,9)</code> in the example below). Note that This is the most complicated feature of Semantic.gs, but nested columns in fluid layouts aren't generally supported by any other grid system, so one additional parameter is a small price to pay.</p>
+			<p>A <code>.row()</code> mixin must be applied to the containing element of the nested columns. That mixin should contain the number of grid units of its parent (9, in this case), and the same number must be passed into the nested columns as a second parameter (<code>.column(3,9)</code> in the example below). Note that This is the most complicated feature of Semantic.gs, but nested columns in fluid layouts aren't generally supported by any other grid system, so one additional parameter is a small price to pay.</p>
 <pre>
 article {
    .column(9);
@@ -226,9 +226,22 @@ aside {
    .column(3);
 }
 </pre>
+			<h3>Column offsets</h3>
+			<p>Offsets enable you to <a href="http://semantic.gs/examples/offset/offset.html">indent a column</a>. The mixin accepts a grid unit value and returns `margin-left`.</p>
+<pre>
+// LESS
+article {
+   .offset(2);
+}
+
+// Compiled CSS
+article {
+   margin-left: 170px;
+}
+</pre>
 			<h2>How It Works</h2>
 			<h3>Powered by LESS mixins</h3>
-			<p>The Semantic Grid avoids presentational CSS classes in the HTML markup itself. Instead, it uses a parametric <a href="http://lesscss.org/#-mixins">LESS mixin</a> to control the layout <em>in the stylesheet</em> where it belongs. Below is an example of the LESS syntax, and the resulting CSS (which is remarkably similar to the <a href="http://1kbgrid.com/">1KB CSS Grid</a>):</p>
+			<p>The Semantic Grid avoids presentational CSS classes in the HTML markup itself. Instead, it uses a parametric <a href="http://lesscss.org/#-mixins">LESS mixin</a> (or a <a href="http://sass-lang.com/">SCSS</a> or <a href="http://learnboost.github.com/stylus/">Stylus mixin</a>, depending on which framework you prefer) to control the layout <em>in the stylesheet</em> where it belongs. Below is an example of the LESS syntax, and the resulting CSS (which is remarkably similar to the <a href="http://1kbgrid.com/">1KB CSS Grid</a>):</p>
 <pre>
 // This LESS rule...
 article {
@@ -243,9 +256,8 @@ article {
    margin: 0 10px;
 }
 </pre>
-			<h3>Painless float clearing</h3>
-			<p>It's not necessary to insert an extra element or add a <code>.clearfix</code> class to clear floating columns. Columns and nested rows all clear any floating elements within them using the <code>overflow: hidden</code> method. Columns can even be added directly within the body tag without the need for a surrounding row element.</p>
-			
+			<h3>Browser compatibility</h3>
+			<p>The Semantic Grid System supports modern browsers as well as Internet Explorer 6 and up. Semantic.gs uses the <a href="http://nicolasgallagher.com/micro-clearfix-hack/">micro clearfix</a> to clear floats, which supports Firefox 3.5+, Safari 4+, Chrome, Opera 9+, and IE6+, though support for earlier versions of FireFox could easily be achieved by adding the `overflow: hidden;` method to the `.row` mixin.</p>
 			<h2>Using in Production</h2>
 			<h3>Switching from client-side to desktop or server compiling</h3>
 			<p>While the LESS JavaScript compiler is convenient during early-stage development, it's best to stay away from client-side compiling once your site goes into production. For starters, you don't want your site's appearance to be dependent on JavaScript. Second, compiling LESS in the browser can take a few hundred milliseconds; no big deal for development, but unnecessary overhead for production environments. Instead, use the <a href="http://incident57.com/less/">LESS.app</a> desktop application to compile .less files into .css, or use one of the several server-side compilers available.</p>

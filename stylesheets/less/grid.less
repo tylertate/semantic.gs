@@ -1,3 +1,7 @@
+/////////////////
+// Semantic.gs // for LESS: http://lesscss.org/
+/////////////////
+
 // Defaults which you can freely override
 @column-width: 60;
 @gutter-width: 20;
@@ -6,7 +10,7 @@
 // Utility variable — you should never need to modify this
 @_gridsystem-width: (@column-width*@columns) + (@gutter-width*@columns) * 1px;
 
-// Change @total-width to 100% for a fluid layout
+// Set @total-width to 100% for a fluid layout
 @total-width: @_gridsystem-width;
 
 
@@ -16,20 +20,35 @@
 
 body {
 	width: 100%;
-	float: left;
+	.clearfix;
 }
 
 .row(@columns:@columns) {
 	display: inline-block;
-	overflow: hidden;
 	width: @total-width*((@gutter-width + @_gridsystem-width)/@_gridsystem-width);
 	margin: 0 @total-width*(((@gutter-width*.5)/@_gridsystem-width)*-1);
+	.clearfix;
 }
-
 .column(@x,@columns:@columns) {
 	display: inline;
 	float: left;
-	overflow: hidden;
 	width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @_gridsystem-width);
 	margin: 0 @total-width*((@gutter-width*.5)/@_gridsystem-width);
+}
+.offset(@offset:1) {
+	margin-left: (@gutter-width+@column-width)*@offset + @total-width*((@gutter-width*.5)/@_gridsystem-width);
+}
+
+// The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
+.clearfix() {
+	*zoom:1;
+	
+	&:before,
+	&:after {
+	    content:"";
+	    display:table;
+	}
+	&:after {
+	    clear:both;
+	}
 }

@@ -6,12 +6,11 @@ h1 {
 	font-size: 2em;
 	padding: 1em;
 	color: white;
-	
-	a {
+}
+	h1 a {
 		color: white;
 		text-decoration: none;
 	}
-}
 h2 {
 	font-family: Georgia;
 	font-size: 1.5em;

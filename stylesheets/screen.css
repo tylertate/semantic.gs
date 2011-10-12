@@ -1,132 +1,14 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol, ul {
-  list-style: none;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
+@import 'reset.css';
 body {
   width: 100%;
-  float: left;
+  *zoom: 1;
+}
+body:before, body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
 }
 .center {
   max-width: 1200px;
@@ -193,7 +75,6 @@ a#github-ribbon {
 section#overview {
   display: inline;
   float: left;
-  overflow: hidden;
   width: 47.91666666666667%;
   margin: 0 1.0416666666666665%;
 }
@@ -241,7 +122,6 @@ section#overview p a {
 section#example {
   display: inline;
   float: left;
-  overflow: hidden;
   width: 47.91666666666667%;
   margin: 0 1.0416666666666665%;
   padding-top: 2em;
@@ -261,7 +141,6 @@ nav {
 nav div#download {
   display: inline;
   float: left;
-  overflow: hidden;
   width: 47.91666666666667%;
   margin: 0 1.0416666666666665%;
   text-align: center;
@@ -307,21 +186,26 @@ article#documentation {
   position: relative;
   display: inline;
   float: left;
-  overflow: hidden;
   width: 81.25%;
   margin: 0 1.0416666666666665%;
   z-index: 25;
 }
 article#documentation ul#examples {
   display: inline-block;
-  overflow: hidden;
   width: 102.49999999999999%;
   margin: 0 -1.25%;
+  *zoom: 1;
+}
+article#documentation ul#examples:before, article#documentation ul#examples:after {
+  content: "";
+  display: table;
+}
+article#documentation ul#examples:after {
+  clear: both;
 }
 article#documentation ul#examples li {
   display: inline;
   float: left;
-  overflow: hidden;
   width: 17.5%;
   margin: 0 1.25%;
 }
@@ -377,7 +261,6 @@ article#documentation p {
 aside#advert {
   display: inline;
   float: left;
-  overflow: hidden;
   width: 14.583333333333334%;
   margin: 0 1.0416666666666665%;
 }
@@ -439,7 +322,6 @@ body #bsap_aplink, body #bsap_aplink:hover {
   section#overview {
     display: inline;
     float: left;
-    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
   }
@@ -452,7 +334,6 @@ body #bsap_aplink, body #bsap_aplink:hover {
   section#example {
     display: inline;
     float: left;
-    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
     padding-top: 0;
@@ -460,21 +341,18 @@ body #bsap_aplink, body #bsap_aplink:hover {
   nav div#download {
     display: inline;
     float: left;
-    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
   }
   article#documentation {
     display: inline;
     float: left;
-    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
   }
   article#documentation ul#examples li {
     display: inline;
     float: left;
-    overflow: hidden;
     width: 30.829999999999995%;
     margin: 0 1.25%;
   }
@@ -494,7 +372,6 @@ body #bsap_aplink, body #bsap_aplink:hover {
   section#overview {
     display: inline;
     float: left;
-    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
   }
@@ -507,7 +384,6 @@ body #bsap_aplink, body #bsap_aplink:hover {
   section#example {
     display: inline;
     float: left;
-    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
     padding-top: 0;
@@ -515,21 +391,18 @@ body #bsap_aplink, body #bsap_aplink:hover {
   nav div#download {
     display: inline;
     float: left;
-    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
   }
   article#documentation {
     display: inline;
     float: left;
-    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
   }
   article#documentation ul#examples li {
     display: inline;
     float: left;
-    overflow: hidden;
     width: 47.91666666666667%;
     margin: 0 1.0416666666666665%;
   }
@@ -547,7 +420,6 @@ body #bsap_aplink, body #bsap_aplink:hover {
   section#overview {
     display: inline;
     float: left;
-    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
   }
@@ -561,7 +433,6 @@ body #bsap_aplink, body #bsap_aplink:hover {
   section#example {
     display: inline;
     float: left;
-    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
     padding-top: 0;
@@ -569,21 +440,18 @@ body #bsap_aplink, body #bsap_aplink:hover {
   nav div#download {
     display: inline;
     float: left;
-    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
   }
   article#documentation {
     display: inline;
     float: left;
-    overflow: hidden;
     width: 97.91666666666666%;
     margin: 0 1.0416666666666665%;
   }
   article#documentation ul#examples li {
     display: inline;
     float: left;
-    overflow: hidden;
     width: 47.91666666666667%;
     margin: 0 1.0416666666666665%;
   }
