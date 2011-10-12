@@ -1,5 +1,5 @@
 #About
-The Semantic Grid System is a modern approach to the CSS grid. It allows you to set column and gutter widths, choose the number of columns, and switch between pixels and percentages, and achieve responsive layouts, all without any ugly .grid_x classes in your markup. It is powered by [LESS.js](http://lesscss.org/).
+The Semantic Grid System is a modern approach to the CSS grid. It allows you to set column and gutter widths, choose the number of columns, switch between pixels and percentages, and achieve responsive layouts, all without any unsemantic .grid_x classes in your markup. By default it's powered by [LESS.js](http://lesscss.org/), but also supports [SCSS](http://sass-lang.com/) and [Stylus](http://learnboost.github.com/stylus/).
 
 It lives on the web at [Semantic.gs](http://semantic.gs/).
 

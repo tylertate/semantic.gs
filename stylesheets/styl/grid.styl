@@ -1,0 +1,50 @@
+/////////////////
+// Semantic.gs // for Stylus: http://learnboost.github.com/stylus/
+/////////////////
+
+// Defaults which you can freely override
+column-width = 60px
+gutter-width = 20px
+columns = 12
+
+// Utility variable — you should never need to modify this
+_gridsystem-width = (column-width + gutter-width) * columns
+
+// Set @total-width to 100% for a fluid layout
+total-width = _gridsystem-width
+
+
+//////////
+// GRID //
+//////////
+
+body
+  width 100%
+  clearfix()
+
+row(columns = columns)
+  display inline-block
+  width total-width * ((gutter-width + _gridsystem-width ) / _gridsystem-width)
+  margin 0 total-width * (((gutter-width * 0.5) / _gridsystem-width ) * - 1)
+
+column(x, columns = columns)
+  display inline
+  float left
+  overflow hidden
+  width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)
+  margin 0 total-width * ( (gutter-width * 0.5) / _gridsystem-width)
+
+offset(offset = 1)
+  margin-left ((gutter-width+column-width)*offset + total-width*((gutter-width*.5)/_gridsystem-width))
+
+// The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
+clearfix()
+  *zoom:1
+
+  &:before,
+  &:after
+    content:""
+    display:table
+
+  &:after
+    clear:both
