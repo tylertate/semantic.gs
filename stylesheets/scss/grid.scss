@@ -13,33 +13,6 @@ $_gridsystem-width: ($column-width*$columns) + ($gutter-width*$columns);
 // Set $total-width to 100% for a fluid layout
 $total-width: $_gridsystem-width;
 
-
-//////////
-// GRID //
-//////////
-
-body {
-	width: 100%;
-	.clearfix();
-}
-
-@mixin row($columns:$columns) {
-	display: inline-block;
-	width: $total-width*(($gutter-width + $_gridsystem-width)/$_gridsystem-width);
-	margin: 0 $total-width*((($gutter-width*.5)/$_gridsystem-width)*-1);
-	.clearfix();
-}
-@mixin column($x,$columns:$columns) {
-	display: inline;
-	float: left;
-	width: $total-width*(((($gutter-width+$column-width)*$x)-$gutter-width) / $_gridsystem-width);
-	margin: 0 $total-width*(($gutter-width*.5)/$_gridsystem-width);
-}
-@mixin offset($offset:1) {
-	margin-left: ($gutter-width+$column-width)*$offset + $total-width*(($gutter-width*.5)/$_gridsystem-width);
-}
-
-// The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
 @mixin clearfix() {
 	*zoom:1;
 	
@@ -52,3 +25,30 @@ body {
 	    clear:both;
 	}
 }
+
+//////////
+// GRID //
+//////////
+
+body {
+	width: 100%;
+	@include clearfix();
+}
+
+@mixin row($columns:$columns) {
+	display: inline-block;
+	width: $total-width*(($gutter-width + $_gridsystem-width)/$_gridsystem-width);
+	margin: 0 $total-width*((($gutter-width*.5)/$_gridsystem-width)*-1);
+	@include clearfix();
+}
+@mixin column($x,$columns:$columns) {
+	display: inline;
+	float: left;
+	width: $total-width*(((($gutter-width+$column-width)*$x)-$gutter-width) / $_gridsystem-width);
+	margin: 0 $total-width*(($gutter-width*.5)/$_gridsystem-width);
+}
+@mixin offset($offset:1) {
+	margin-left: ($gutter-width+$column-width)*$offset + $total-width*(($gutter-width*.5)/$_gridsystem-width);
+}
+
+// The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
