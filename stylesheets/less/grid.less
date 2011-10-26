@@ -24,7 +24,7 @@ body {
 }
 
 .row(@columns:@columns) {
-	display: inline-block;
+	display: block;
 	width: @total-width*((@gutter-width + @_gridsystem-width)/@_gridsystem-width);
 	margin: 0 @total-width*(((@gutter-width*.5)/@_gridsystem-width)*-1);
 	.clearfix;
