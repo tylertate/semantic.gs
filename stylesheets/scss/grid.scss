@@ -3,9 +3,9 @@
 /////////////////
 
 // Defaults which you can freely override
-$column-width: 60px;
-$gutter-width: 20px;
-$columns: 12;
+$column-width: 60px !default;
+$gutter-width: 20px !default;
+$columns: 12 !default;
 
 // Utility variable — you should never need to modify this
 $_gridsystem-width: ($column-width*$columns) + ($gutter-width*$columns);
@@ -15,7 +15,7 @@ $total-width: $_gridsystem-width;
 
 @mixin clearfix() {
 	*zoom:1;
-	
+
 	&:before,
 	&:after {
 	    content:"";
