@@ -11,7 +11,7 @@ $columns: 12 !default;
 $_gridsystem-width: ($column-width*$columns) + ($gutter-width*$columns);
 
 // Set $total-width to 100% for a fluid layout
-$total-width: $_gridsystem-width;
+$total-width: $_gridsystem-width !default;
 
 @mixin clearfix() {
 	*zoom:1;
