@@ -36,18 +36,25 @@ body {
 }
 
 @mixin row($columns:$columns) {
+	$_gridsystem-width: ($column-width*$columns) + ($gutter-width*$columns);
 	display: inline-block;
 	width: $total-width*(($gutter-width + $_gridsystem-width)/$_gridsystem-width);
-	margin: 0 $total-width*((($gutter-width*.5)/$_gridsystem-width)*-1);
+	$margin: $total-width*((($gutter-width*.5)/$_gridsystem-width)*-1);
+	margin-left: $margin;
+	margin-right: $margin;
 	@include clearfix();
 }
 @mixin column($x,$columns:$columns) {
+	$_gridsystem-width: ($column-width*$columns) + ($gutter-width*$columns);
 	display: inline;
 	float: left;
 	width: $total-width*(((($gutter-width+$column-width)*$x)-$gutter-width) / $_gridsystem-width);
-	margin: 0 $total-width*(($gutter-width*.5)/$_gridsystem-width);
+	$margin: $total-width*(($gutter-width*.5)/$_gridsystem-width);
+	margin-left: $margin;
+	margin-right: $margin;
 }
 @mixin offset($offset:1) {
+	$_gridsystem-width: ($column-width*$columns) + ($gutter-width*$columns);
 	margin-left: ($gutter-width+$column-width)*$offset + $total-width*(($gutter-width*.5)/$_gridsystem-width);
 }
 
