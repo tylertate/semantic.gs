@@ -8,21 +8,21 @@ $gutter-width: 20px;
 $columns: 12;
 
 // Utility variable — you should never need to modify this
-$_gridsystem-width: ($column-width*$columns) + ($gutter-width*$columns);
+$gridsystem-width: ($column-width*$columns) + ($gutter-width*$columns);
 
 // Set $total-width to 100% for a fluid layout
-$total-width: $_gridsystem-width;
+$total-width: $gridsystem-width;
 
-@mixin clearfix() {
-	*zoom:1;
-	
+// The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
+@mixin clearfix {
+	*zoom: 1;
 	&:before,
 	&:after {
-	    content:"";
-	    display:table;
-	}
+    content: "";
+    display: table;
+  }
 	&:after {
-	    clear:both;
+	  clear: both;
 	}
 }
 
@@ -32,23 +32,21 @@ $total-width: $_gridsystem-width;
 
 body {
 	width: 100%;
-	@include clearfix();
+	@include clearfix;
 }
 
-@mixin row($columns:$columns) {
+@mixin row($columns: $columns) {
 	display: inline-block;
-	width: $total-width*(($gutter-width + $_gridsystem-width)/$_gridsystem-width);
-	margin: 0 $total-width*((($gutter-width*.5)/$_gridsystem-width)*-1);
-	@include clearfix();
+	width: $total-width * (($gutter-width + $gridsystem-width) / $gridsystem-width);
+	margin: 0 $total-width * ((($gutter-width * .5) / $gridsystem-width) * -1);
+	@include clearfix;
 }
-@mixin column($x,$columns:$columns) {
+@mixin column($x, $columns: $columns) {
 	display: inline;
 	float: left;
-	width: $total-width*(((($gutter-width+$column-width)*$x)-$gutter-width) / $_gridsystem-width);
-	margin: 0 $total-width*(($gutter-width*.5)/$_gridsystem-width);
+	width: $total-width * (((($gutter-width + $column-width) * $x) - $gutter-width) / $gridsystem-width);
+	margin: 0 $total-width * (($gutter-width * .5) / $gridsystem-width);
 }
-@mixin offset($offset:1) {
-	margin-left: ($gutter-width+$column-width)*$offset + $total-width*(($gutter-width*.5)/$_gridsystem-width);
+@mixin offset($offset: 1) {
+	margin-left: ($gutter-width + $column-width) * $offset + $total-width * (($gutter-width * .5) / $gridsystem-width);
 }
-
-// The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
