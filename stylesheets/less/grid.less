@@ -36,8 +36,10 @@ body {
 	margin: 0 @total-width*((@gutter-width*.5)/@_gridsystem-width);
 }
 .offset(@offset:1) {
-	margin-left: (@gutter-width+@column-width)*@offset + @total-width*((@gutter-width*.5)/@_gridsystem-width);
+	margin-left: @total-width*(((@gutter-width+@column-width)*@offset + (@gutter-width*0.5))/@_gridsystem-width);
 }
+
+
 
 // The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
 .clearfix() {
