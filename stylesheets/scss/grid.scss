@@ -7,11 +7,13 @@ $column-width: 60px;
 $gutter-width: 20px;
 $columns: 12;
 
-// Utility variable — you should never need to modify this
-$_gridsystem-width: ($column-width*$columns) + ($gutter-width*$columns);
+// Utility function — you should never need to modify this
+@function _gridsystem-width($columns: $columns) {
+	@return ($column-width * $columns) + ($gutter-width * $columns);
+}
 
 // Set $total-width to 100% for a fluid layout
-$total-width: $_gridsystem-width;
+$total-width: _gridsystem-width;
 
 @mixin clearfix() {
 	*zoom:1;
@@ -37,18 +39,18 @@ body {
 
 @mixin row($columns:$columns) {
 	display: inline-block;
-	width: $total-width*(($gutter-width + $_gridsystem-width)/$_gridsystem-width);
-	margin: 0 $total-width*((($gutter-width*.5)/$_gridsystem-width)*-1);
+	width: $total-width*(($gutter-width + _gridsystem-width($columns))/_gridsystem-width($columns));
+	margin: 0 $total-width*((($gutter-width*.5)/_gridsystem-width($columns))*-1);
 	@include clearfix();
 }
 @mixin column($x,$columns:$columns) {
 	display: inline;
 	float: left;
-	width: $total-width*(((($gutter-width+$column-width)*$x)-$gutter-width) / $_gridsystem-width);
-	margin: 0 $total-width*(($gutter-width*.5)/$_gridsystem-width);
+	width: $total-width * (((($gutter-width+$column-width) * $x) - $gutter-width) / _gridsystem-width($columns));
+	margin: 0 $total-width*(($gutter-width*.5)/_gridsystem-width($columns));
 }
 @mixin offset($offset:1) {
-	margin-left: ($gutter-width+$column-width)*$offset + $total-width*(($gutter-width*.5)/$_gridsystem-width);
+	margin-left: ($gutter-width+$column-width)*$offset + $total-width*(($gutter-width*.5)/_gridsystem-width);
 }
 
 // The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
