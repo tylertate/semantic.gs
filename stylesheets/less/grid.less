@@ -13,6 +13,20 @@
 // Set @total-width to 100% for a fluid layout
 @total-width: @_gridsystem-width;
 
+// The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
+.clearfix() {
+	*zoom:1;
+	
+	&:before,
+	&:after {
+	    content:"";
+	    display:table;
+	}
+	&:after {
+	    clear:both;
+	}
+}
+
 
 //////////
 // GRID //
@@ -37,18 +51,4 @@ body {
 }
 .offset(@offset:1) {
 	margin-left: @total-width*(((@gutter-width+@column-width)*@offset) / @_gridsystem-width) + @total-width*((@gutter-width*.5)/@_gridsystem-width);
-}
-
-// The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
-.clearfix() {
-	*zoom:1;
-	
-	&:before,
-	&:after {
-	    content:"";
-	    display:table;
-	}
-	&:after {
-	    clear:both;
-	}
 }
