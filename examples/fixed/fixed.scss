@@ -33,16 +33,10 @@ header#top {
 	margin-bottom: 1em;
 }
 
-// push
-#push {
-	@include column(8);
-	@include push(4);
-	margin-bottom: 1em;
+// main and sidebar
+#maincolumn {
+	@include column(9);
 }
-
-// pull
-#pull {
-	@include column(8);
-	@include pull(4);
-	margin-bottom: 1em;
+#sidebar {
+	@include column(3);
 }

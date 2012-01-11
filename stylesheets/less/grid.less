@@ -13,11 +13,9 @@
 // Set @total-width to 100% for a fluid layout
 @total-width: @gridsystem-width;
 
-// Correcting percentage-to-pixel rounding errors in IE6 & 7
-// See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
-// Override @min with the minimum width of your layout
-@min-width: 960;
-@correction: 0.5 / @min-width * 100 * 1%;
+// Uncomment these two lines and the star-hack width/margin lines below to enable sub-pixel fix for IE6 & 7. See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
+// @min-width: 960;
+// @correction: 0.5 / @min-width * 100 * 1%;
 
 // The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
 .clearfix() {
@@ -47,8 +45,8 @@ body {
 	display: block;
 	width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width);
 	margin: 0 @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1);
-	*width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width)-@correction;
-	*margin: 0 @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1)-@correction;
+	// *width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width)-@correction;
+	// *margin: 0 @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1)-@correction;
 	.clearfix;
 }
 .column(@x,@columns:@columns) {
@@ -56,8 +54,8 @@ body {
 	float: left;
 	width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
 	margin: 0 @total-width*((@gutter-width*.5)/@gridsystem-width);
-	*width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width)-@correction;
-	*margin: 0 @total-width*((@gutter-width*.5)/@gridsystem-width)-@correction;
+	// *width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width)-@correction;
+	// *margin: 0 @total-width*((@gutter-width*.5)/@gridsystem-width)-@correction;
 }
 .push(@offset:1) {
 	margin-left: @total-width*(((@gutter-width+@column-width)*@offset) / @gridsystem-width) + @total-width*((@gutter-width*.5)/@gridsystem-width);
