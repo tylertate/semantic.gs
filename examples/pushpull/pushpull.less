@@ -12,8 +12,8 @@
 @column-width: 60;
 @gutter-width: 20;
 
-// Remove the definition below for a pixel-based layout
-@total-width: 100%;
+// Uncomment the definition below for a percentage-based layout
+// @total-width: 100%;
 
 
 ////////////
@@ -22,30 +22,27 @@
 
 // center the contents
 div.center {
+	width: 960px;
 	margin: 0 auto;
 	overflow: hidden;
 }
 
 // header
 header#top {
+	.column(12);
 	margin-bottom: 1em;
 }
 
-// main column
-#maincolumn {
-	.column(9);
-	
-	ul#boxes {
-		.row(9);
-
-		li {
-			.column(3,9);
-			margin-bottom: 1em;
-		}
-	}
+// push
+#push {
+	.column(8);
+	.push(4);
+	margin-bottom: 1em;
 }
 
-// sidebar
-#sidebar {
-	.column(3);
+// pull
+#pull {
+	.column(8);
+	.pull(4);
+	margin-bottom: 1em;
 }
