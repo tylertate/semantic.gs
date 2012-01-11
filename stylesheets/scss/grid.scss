@@ -40,7 +40,7 @@ body {
 }
 
 @mixin row($columns:$columns) {
-	display: inline-block;
+	display: block;
 	width: $total-width*(($gutter-width + gridsystem-width($columns))/gridsystem-width($columns));
 	margin: 0 $total-width*((($gutter-width*.5)/gridsystem-width($columns))*-1);
 	@include clearfix();
