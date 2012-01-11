@@ -1,3 +1,14 @@
+#Release 1.2 — January 11, 2012
+
+* Fixed a bug with nested columns in the SCSS version by implementing @daffydowden's gridsystem-width() function
+* Switched from the `.offset()` mixin to `.push()` and `.pull()` mixins instead, in response to Issue #20
+* Added a fix to the sub-pixel rounding bug occurring in fluid layouts in IE6 & 7. See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
+* Applied @dwbm and @designerbrent's fixes to `.offset()` so that it works correctly in both pixel and percentage modes
+* Renamed `_gridsystem-width` to `gridsystem-width` on @adamstac's recommendation
+* Changed rows from `inline-block` to `block` on @levito's recommendation
+* Added .SCSS stylesheets to the examples
+
+
 #Release 1.1 — October 12, 2011
 
 * Added `.offset()` mixin to indent columns
