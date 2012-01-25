@@ -43,7 +43,9 @@ body
 row(columns = columns)
 	display block
 	width total-width * ((gutter-width + _gridsystem-width ) / _gridsystem-width)
-	margin 0 total-width * (((gutter-width * 0.5) / _gridsystem-width ) * - 1)
+	margin-width = total-width * (((gutter-width * 0.5) / _gridsystem-width ) * - 1)
+	margin-left margin-width
+	margin-right margin-width
 	*width total-width * ((gutter-width + _gridsystem-width ) / _gridsystem-width)-correction
 	*margin 0 total-width * (((gutter-width * 0.5) / _gridsystem-width ) * - 1)-correction
 
@@ -52,7 +54,9 @@ column(x, columns = columns)
 	float left
 	overflow hidden
 	width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)
-	margin 0 total-width * ( (gutter-width * 0.5) / _gridsystem-width)
+	margin-width = total-width * ( (gutter-width * 0.5) / _gridsystem-width)
+	margin-left margin-width
+	margin-right margin-width
 	*width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)-correction
 	*margin 0 total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction
 
