@@ -56,5 +56,11 @@ column(x, columns = columns)
 	*width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)-correction
 	*margin 0 total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction
 
-offset(offset = 1)
+push(offset = 1)
 	margin-left total-width*(((gutter-width+column-width)*offset + (gutter-width*0.5))/_gridsystem-width)
+	
+offset(offset =1) 
+  push(offset)
+
+pull(offset = 1)
+  margin-right total-width*(((gutter-width+column-width)*offset + (gutter-width*0.5))/_gridsystem-width)
