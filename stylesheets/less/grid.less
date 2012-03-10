@@ -33,16 +33,15 @@
 
 //Add to body to show grid during development
 .showGrid(){
-	@_column-total-width: @column-width+@gutter-width;
-	@_column-percent: @column-width/@_column-total-width*100%;
-	@_gutter-percent: @gutter-width/@_column-total-width*50%;
+	@_column-percent: @column-width/(@column-width+@gutter-width)*100%;
+	@_gutter-percent: @gutter-width/(@column-width+@gutter-width)*50%;
 
-	background-size: @_column-total-width*1px;
-	background-image: -moz-linear-gradient(left, transparent 0%,transparent @_gutter-percent,rgba(255,0,0,0.1) @_gutter-percent,rgba(255,0,0,0.1) @_gutter-percent+@_column-percent,transparent @_gutter-percent+@_column-percent);
-	background-image: -webkit-linear-gradient(left, transparent 0%,transparent @_gutter-percent,rgba(255,0,0,0.1) @_gutter-percent,rgba(255,0,0,0.1) @_gutter-percent+@_column-percent,transparent @_gutter-percent+@_column-percent);
-  	background-image: -o-linear-gradient(left, transparent 0%,transparent @_gutter-percent,rgba(255,0,0,0.1) @_gutter-percent,rgba(255,0,0,0.1) @_gutter-percent+@_column-percent,transparent @_gutter-percent+@_column-percent);
-	background-image: -ms-linear-gradient(left, transparent 0%,transparent @_gutter-percent,rgba(255,0,0,0.1) @_gutter-percent,rgba(255,0,0,0.1) @_gutter-percent+@_column-percent,transparent @_gutter-percent+@_column-percent);
-	background-image: linear-gradient(left, transparent 0%,transparent @_gutter-percent,rgba(255,0,0,0.1) @_gutter-percent,rgba(255,0,0,0.1) @_gutter-percent+@_column-percent,transparent @_gutter-percent+@_column-percent);
+	background-size: @total-width*((@column-width+@gutter-width) / @gridsystem-width);
+	background-image: -moz-linear-gradient(left, rgba(255,0,0,0.05) 0%,rgba(255,0,0,0.05) @_gutter-percent,rgba(255,0,0,0.1) @_gutter-percent,rgba(255,0,0,0.1) @_gutter-percent+@_column-percent,rgba(255,0,0,0.05) @_gutter-percent+@_column-percent);
+	background-image: -webkit-linear-gradient(left, rgba(255,0,0,0.05) 0%,rgba(255,0,0,0.05) @_gutter-percent,rgba(255,0,0,0.1) @_gutter-percent,rgba(255,0,0,0.1) @_gutter-percent+@_column-percent,rgba(255,0,0,0.05) @_gutter-percent+@_column-percent);
+  	background-image: -o-linear-gradient(left, rgba(255,0,0,0.05) 0%,rgba(255,0,0,0.05) @_gutter-percent,rgba(255,0,0,0.1) @_gutter-percent,rgba(255,0,0,0.1) @_gutter-percent+@_column-percent,rgba(255,0,0,0.05) @_gutter-percent+@_column-percent);
+	background-image: -ms-linear-gradient(left, rgba(255,0,0,0.05) 0%,rgba(255,0,0,0.05) @_gutter-percent,rgba(255,0,0,0.1) @_gutter-percent,rgba(255,0,0,0.1) @_gutter-percent+@_column-percent,rgba(255,0,0,0.05) @_gutter-percent+@_column-percent);
+	background-image: linear-gradient(left, rgba(255,0,0,0.05) 0%,rgba(255,0,0,0.05) @_gutter-percent,rgba(255,0,0,0.1) @_gutter-percent,rgba(255,0,0,0.1) @_gutter-percent+@_column-percent,rgba(255,0,0,0.05) @_gutter-percent+@_column-percent);
 }
 
 //////////
