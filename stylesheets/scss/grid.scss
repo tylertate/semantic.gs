@@ -44,24 +44,24 @@ body {
 }
 
 @mixin row($columns:$columns) {
-	$row-width: $total-width*(($gutter-width + gridsystem-width($columns))/gridsystem-width($columns));
-	$margin-width: $total-width*((($gutter-width*.5)/gridsystem-width($columns))*-1);
+	$calculated-row-width: $total-width*(($gutter-width + gridsystem-width($columns))/gridsystem-width($columns));
+	$calculated-margin-width: $total-width*((($gutter-width*.5)/gridsystem-width($columns))*-1);
 	display: block;
-	width: $row-width;
-	margin-left: $margin-width;
-	margin-right: $margin-width;
+	width: $calculated-row-width;
+	margin-left: $calculated-margin-width;
+	margin-right: $calculated-margin-width;
 	// *width: $total-width*(($gutter-width + gridsystem-width($columns))/gridsystem-width($columns))-$correction;
 	// *margin: 0 $total-width*((($gutter-width*.5)/gridsystem-width($columns))*-1)-$correction;
 	@include clearfix();
 }
 @mixin column($x,$columns:$columns) {
-	$column-width: $total-width*(((($gutter-width+$column-width)*$x)-$gutter-width) / gridsystem-width($columns));
-	$margin-width: $total-width*(($gutter-width*.5)/gridsystem-width($columns));
+	$calculated-column-width: $total-width*(((($gutter-width+$column-width)*$x)-$gutter-width) / gridsystem-width($columns));
+	$calculated-margin-width: $total-width*(($gutter-width*.5)/gridsystem-width($columns));
 	display: inline;
 	float: left;
-	width: $column-width;
-	margin-left: $margin-width;
-	margin-right: $margin-width;
+	width: $calculated-column-width;
+	margin-left: $calculated-margin-width;
+	margin-right: $calculated-margin-width;
 	// *width: $total-width*(((($gutter-width+$column-width)*$x)-$gutter-width) / gridsystem-width($columns))-$correction;
 	// *margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns))-$correction;
 }

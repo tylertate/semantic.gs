@@ -41,24 +41,24 @@ body
 	clearfix()
 
 row(columns = columns)
-	row-width = total-width * ((gutter-width + _gridsystem-width ) / _gridsystem-width)
-	margin-width = total-width * (((gutter-width * 0.5) / _gridsystem-width ) * - 1)
+	calculated-row-width = total-width * ((gutter-width + _gridsystem-width ) / _gridsystem-width)
+	calculated-margin-width = total-width * (((gutter-width * 0.5) / _gridsystem-width ) * - 1)
 	display block
-	width row-width
-	margin-left margin-width
-	margin-right margin-width
+	width rcalculated-ow-width
+	margin-left calculated-margin-width
+	margin-right calculated-margin-width
 	*width total-width * ((gutter-width + _gridsystem-width ) / _gridsystem-width)-correction
 	*margin 0 total-width * (((gutter-width * 0.5) / _gridsystem-width ) * - 1)-correction
 
 column(x, columns = columns)
-	column-width = total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)
-	margin-width = total-width * ( (gutter-width * 0.5) / _gridsystem-width)
+	calculated-column-width = total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)
+	calculated-margin-width = total-width * ( (gutter-width * 0.5) / _gridsystem-width)
 	display inline
 	float left
 	overflow hidden
-	width column-width
-	margin-left margin-width
-	margin-right margin-width
+	width calculated-column-width
+	margin-left calculated-margin-width
+	margin-right calculated-margin-width
 	*width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)-correction
 	*margin 0 total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction
 
