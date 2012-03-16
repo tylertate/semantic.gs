@@ -48,8 +48,9 @@ body {
 	width: @calculated-row-width;
 	margin-left: @mcalculated-argin-width;
 	margin-right: @calculated-margin-width;
-	// *width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width)-@correction;
-	// *margin: 0 @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1)-@correction;
+	// *width: @calculated-row-width-@correction;
+	// *margin-left: @calculated-margin-width-@correction;
+	// *margin-right: @calculated-margin-width-@correction;
 	.clearfix;
 }
 .column(@x,@columns:@columns) {
@@ -60,8 +61,9 @@ body {
 	width: @calculated-column-width;
 	margin-left: @calculated-margin-width;
 	margin-right: @calculated-margin-width;
-	// *width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width)-@correction;
-	// *margin: 0 @total-width*((@gutter-width*.5)/@gridsystem-width)-@correction;
+	// *width: @calculated-column-width-@correction;
+	// *margin-left: @calculated-margin-width-@correction;
+	// *margin-right: @calculated-margin-width-@correction;
 }
 .push(@offset:1) {
 	margin-left: @total-width*(((@gutter-width+@column-width)*@offset) / @gridsystem-width) + @total-width*((@gutter-width*.5)/@gridsystem-width);

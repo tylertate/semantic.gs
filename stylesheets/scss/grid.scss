@@ -50,8 +50,9 @@ body {
 	width: $calculated-row-width;
 	margin-left: $calculated-margin-width;
 	margin-right: $calculated-margin-width;
-	// *width: $total-width*(($gutter-width + gridsystem-width($columns))/gridsystem-width($columns))-$correction;
-	// *margin: 0 $total-width*((($gutter-width*.5)/gridsystem-width($columns))*-1)-$correction;
+	// *width: $calculated-row-width-$correction;
+	// *margin-left: $calculated-margin-width-$correction;
+	// *margin-right: $calculated-margin-width-$correction;
 	@include clearfix();
 }
 @mixin column($x,$columns:$columns) {
@@ -62,8 +63,9 @@ body {
 	width: $calculated-column-width;
 	margin-left: $calculated-margin-width;
 	margin-right: $calculated-margin-width;
-	// *width: $total-width*(((($gutter-width+$column-width)*$x)-$gutter-width) / gridsystem-width($columns))-$correction;
-	// *margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns))-$correction;
+	// *width: $calculated-column-width-$correction;
+	// *margin-left: $calculated-margin-width-$correction;
+	// *margin-right: $calculated-margin-width-$correction;
 }
 @mixin push($offset:1) {
 	margin-left: $total-width*((($gutter-width+$column-width)*$offset) / gridsystem-width($columns)) + $total-width*(($gutter-width*.5)/gridsystem-width($columns));

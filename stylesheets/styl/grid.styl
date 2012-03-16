@@ -47,8 +47,9 @@ row(columns = columns)
 	width rcalculated-ow-width
 	margin-left calculated-margin-width
 	margin-right calculated-margin-width
-	*width total-width * ((gutter-width + _gridsystem-width ) / _gridsystem-width)-correction
-	*margin 0 total-width * (((gutter-width * 0.5) / _gridsystem-width ) * - 1)-correction
+	*width (calculated-row-width)-correction
+	*margin-left: (calculated-margin-width)-correction
+	*margin-right: (calculated-margin-width)-correction
 
 column(x, columns = columns)
 	calculated-column-width = total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)
@@ -59,8 +60,9 @@ column(x, columns = columns)
 	width calculated-column-width
 	margin-left calculated-margin-width
 	margin-right calculated-margin-width
-	*width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)-correction
-	*margin 0 total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction
+	*width (calculated-column-width)-correction
+	*margin-left: (calculated-margin-width)-correction
+	*margin-right: (calculated-margin-width)-correction
 
 offset(offset = 1)
 	margin-left total-width*(((gutter-width+column-width)*offset + (gutter-width*0.5))/_gridsystem-width)
