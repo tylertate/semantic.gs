@@ -41,20 +41,22 @@ body
 	clearfix()
 
 row(columns = columns)
-	display block
-	width total-width * ((gutter-width + _gridsystem-width ) / _gridsystem-width)
+	row-width = total-width * ((gutter-width + _gridsystem-width ) / _gridsystem-width)
 	margin-width = total-width * (((gutter-width * 0.5) / _gridsystem-width ) * - 1)
+	display block
+	width row-width
 	margin-left margin-width
 	margin-right margin-width
 	*width total-width * ((gutter-width + _gridsystem-width ) / _gridsystem-width)-correction
 	*margin 0 total-width * (((gutter-width * 0.5) / _gridsystem-width ) * - 1)-correction
 
 column(x, columns = columns)
+	column-width = total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)
+	margin-width = total-width * ( (gutter-width * 0.5) / _gridsystem-width)
 	display inline
 	float left
 	overflow hidden
-	width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)
-	margin-width = total-width * ( (gutter-width * 0.5) / _gridsystem-width)
+	width column-width
 	margin-left margin-width
 	margin-right margin-width
 	*width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)-correction

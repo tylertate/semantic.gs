@@ -42,9 +42,10 @@ body {
 }
 
 .row(@columns:@columns) {
-	display: block;
-	width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width);
+	@row-width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width);
 	@margin-width: @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1);
+	display: block;
+	width: @row-width;
 	margin-left: @margin-width;
 	margin-right: @margin-width;
 	// *width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width)-@correction;
@@ -52,10 +53,11 @@ body {
 	.clearfix;
 }
 .column(@x,@columns:@columns) {
+	@column-width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
+	@margin-width: @total-width*((@gutter-width*.5)/@gridsystem-width);
 	display: inline;
 	float: left;
-	width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
-	@margin-width: @total-width*((@gutter-width*.5)/@gridsystem-width);
+	width: @column-width;
 	margin-left: @margin-width;
 	margin-right: @margin-width;
 	// *width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width)-@correction;
