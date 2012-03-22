@@ -6,6 +6,7 @@
 @column-width: 60;
 @gutter-width: 20;
 @columns: 12;
+@gutter-method: margin;
 
 // Utility variable - you should never need to modify this
 @gridsystem-width: (@column-width*@columns) + (@gutter-width*@columns) * 1px;
@@ -41,30 +42,55 @@ body {
 	.clearfix;
 }
 
-.row(@columns:@columns) {
+.row(@columns:@columns) when (@gutter-method = margin) {
 	@calculated-row-width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width);
-	@calculated-margin-width: @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1);
+	@calculated-gutter-width: @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1);
 	display: block;
 	width: @calculated-row-width;
-	margin-left: @mcalculated-argin-width;
-	margin-right: @calculated-margin-width;
+	margin-left: @calculated-gutter-width;
+	margin-right: @calculated-gutter-width;
 	// *width: @calculated-row-width-@correction;
-	// *margin-left: @calculated-margin-width-@correction;
-	// *margin-right: @calculated-margin-width-@correction;
+	// *margin-left: @calculated-gutter-width-@correction;
+	// *margin-right: @calculated-gutter-width-@correction;
 	.clearfix;
 }
-.column(@x,@columns:@columns) {
+.row(@columns:@columns) when (@gutter-method = padding) {
+	@calculated-row-width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width);
+	@calculated-gutter-width: @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1);
+	display: block;
+	width: @calculated-row-width;
+	padding-left: @calculated-gutter-width;
+	padding-right: @calculated-gutter-width;
+	// *width: @calculated-row-width-@correction;
+	// *padding-left: @calculated-gutter-width-@correction;
+	// *padding-right: @calculated-gutter-width-@correction;
+	.clearfix;
+}
+.column(@x,@columns:@columns) when (@gutter-method = margin) {
 	@calculated-column-width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
-	@calculated-margin-width: @total-width*((@gutter-width*.5)/@gridsystem-width);
+	@calculated-gutter-width: @total-width*((@gutter-width*.5)/@gridsystem-width);
 	display: inline;
 	float: left;
 	width: @calculated-column-width;
-	margin-left: @calculated-margin-width;
-	margin-right: @calculated-margin-width;
+	margin-left: @calculated-gutter-width;
+	margin-right: @calculated-gutter-width;
 	// *width: @calculated-column-width-@correction;
-	// *margin-left: @calculated-margin-width-@correction;
-	// *margin-right: @calculated-margin-width-@correction;
+	// *margin-left: @calculated-gutter-width-@correction;
+	// *margin-right: @calculated-gutter-width-@correction;
 }
+.column(@x,@columns:@columns) when (@gutter-method = padding) {
+	@calculated-column-width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
+	@calculated-gutter-width: @total-width*((@gutter-width*.5)/@gridsystem-width);
+	display: inline;
+	float: left;
+	width: @calculated-column-width;
+	padding-left: @calculated-gutter-width;
+	padding-right: @calculated-gutter-width;
+	// *width: @calculated-column-width-@correction;
+	// *padding-left: @calculated-gutter-width-@correction;
+	// *padding-right: @calculated-gutter-width-@correction;
+}
+
 .push(@offset:1) {
 	margin-left: @total-width*(((@gutter-width+@column-width)*@offset) / @gridsystem-width) + @total-width*((@gutter-width*.5)/@gridsystem-width);
 }
