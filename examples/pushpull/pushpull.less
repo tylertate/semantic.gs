@@ -13,39 +13,47 @@
 @gutter-width: 20;
 
 // Uncomment the definition below for a percentage-based layout
-// @total-width: 100%;
+@total-width: 100%;
 
 
 ////////////
 // LAYOUT //
 ////////////
 
-// center the contents
-div.center {
-	width: 960px;
-	margin: 0 auto;
-	overflow: hidden;
-}
-
 // header
 header#top {
+	.column(padding);
 	margin-bottom: 1em;
+}
 
-	h1 {
-		.column();
+// main column
+#maincolumn {
+	.column(9);
+
+	section {
+		.row(9);
+
+		// push
+		#push {
+			.column(6,9);
+			.push(3,9);
+			margin-bottom: 1em;
+		}
+
+		// pull
+		#pull {
+			.column(6,9);
+			.pull(3,9);
+			margin-bottom: 1em;
+		}
 	}
 }
 
-// push
-#push {
-	.column(8);
-	.push(4);
-	margin-bottom: 1em;
-}
+// sidebar
+#sidebar {
+	.column(3);
 
-// pull
-#pull {
-	.column(8);
-	.pull(4);
-	margin-bottom: 1em;
+	h2 {
+		height: 13.2em;
+	}
 }

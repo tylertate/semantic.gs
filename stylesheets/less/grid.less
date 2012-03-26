@@ -1,8 +1,8 @@
 /////////////////
-// Semantic.gs // for LESS: http://lesscss.org/
+// SEMANTIC.GS // for LESS: http://lesscss.org/
 /////////////////
 
-// Defaults which you can freely override
+// Defaults that you can freely override. @gutter-method can be either 'margin' or 'padding'.
 @column-width: 60;
 @gutter-width: 20;
 @columns: 12;
@@ -56,7 +56,7 @@ body {
 //////////
 
 // Margin-based rows
-.row(@columns:@columns) when (@gutter-method = margin) {
+.row(@columns:@columns,@gutter-method:@gutter-method) when (@gutter-method = margin) {
 	@calculated-row-width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width);
 	@calculated-gutter-width: @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1);
 	display: block;
@@ -70,7 +70,7 @@ body {
 }
 
 // Padding-based rows
-.row(@columns:@columns) when (@gutter-method = padding) {
+.row(@columns:@columns,@gutter-method:@gutter-method) when (@gutter-method = padding) {
 	@calculated-row-width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width);
 	@calculated-gutter-width: @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1);
 	display: block;
@@ -89,7 +89,7 @@ body {
 /////////////
 
 // Margin-based column - specified width
-.column(@x,@columns:@columns) when (@gutter-method = margin) {
+.column(@x,@columns:@columns,@gutter-method:@gutter-method) when (@gutter-method = margin) {
 	@calculated-column-width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
 	@calculated-gutter-width: @total-width*((@gutter-width*.5)/@gridsystem-width);
 	display: inline;
@@ -115,7 +115,7 @@ body {
 }
 
 // Padding-based column - specified width
-.column(@x,@columns:@columns) when (@gutter-method = padding) {
+.column(@x,@columns:@columns,@gutter-method:@gutter-method) when (@gutter-method = padding) {
 	@calculated-column-width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
 	@calculated-gutter-width: @total-width*((@gutter-width*.5)/@gridsystem-width);
 	display: inline;
@@ -145,9 +145,38 @@ body {
 // PUSH / PULL //
 /////////////////
 
-.push(@offset:1) {
-	margin-left: @total-width*(((@gutter-width+@column-width)*@offset) / @gridsystem-width) + @total-width*((@gutter-width*.5)/@gridsystem-width);
+// Margin-based push
+.push(@offset:1,@columns:@columns,@gutter-method:@gutter-method) when (@gutter-method = margin) {
+	@calculated-column-width: @total-width*((((@gutter-width+@column-width)*@offset)-@gutter-width) / @gridsystem-width);
+	@calculated-gutter-width: @total-width*((@gutter-width*.5)/@gridsystem-width);
+	padding-left: 0;
+	margin-left: @calculated-column-width+(@calculated-gutter-width*3);
+	// *margin-left: @calculated-column-width+(@calculated-gutter-width*3)-@correction;
 }
-.pull(@offset:1) {
-	margin-right: @total-width*(((@gutter-width+@column-width)*@offset) / @gridsystem-width) + @total-width*((@gutter-width*.5)/@gridsystem-width);
+
+// Padding-based push
+.push(@offset:1,@columns:@columns,@gutter-method:@gutter-method) when (@gutter-method = padding) {
+	@calculated-column-width: @total-width*((((@gutter-width+@column-width)*@offset)-@gutter-width) / @gridsystem-width);
+	@calculated-gutter-width: @total-width*((@gutter-width*.5)/@gridsystem-width);
+	padding-left: @calculated-column-width+(@calculated-gutter-width*3);
+	margin-left: 0;
+	// *padding-left: @calculated-column-width+(@calculated-gutter-width*3)-@correction;
+}
+
+// Margin-based pull
+.pull(@offset:1,@columns:@columns,@gutter-method:@gutter-method) when (@gutter-method = margin) {
+	@calculated-column-width: @total-width*((((@gutter-width+@column-width)*@offset)-@gutter-width) / @gridsystem-width);
+	@calculated-gutter-width: @total-width*((@gutter-width*.5)/@gridsystem-width);
+	padding-right: 0;
+	margin-right: @calculated-column-width+(@calculated-gutter-width*3);
+	// *margin-right: @calculated-column-width+(@calculated-gutter-width*3)-@correction;
+}
+
+// Padding-based pull
+.pull(@offset:1,@columns:@columns,@gutter-method:@gutter-method) when (@gutter-method = padding) {
+	@calculated-column-width: @total-width*((((@gutter-width+@column-width)*@offset)-@gutter-width) / @gridsystem-width);
+	@calculated-gutter-width: @total-width*((@gutter-width*.5)/@gridsystem-width);
+	padding-right: @calculated-column-width+(@calculated-gutter-width*3);
+	margin-right: 0;
+	// *padding-right: @calculated-column-width+(@calculated-gutter-width*3)-@correction;
 }
