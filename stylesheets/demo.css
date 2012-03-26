@@ -4,7 +4,7 @@ header#top {
 h1 {
 	font-family: Georgia;
 	font-size: 2em;
-	padding: 1em;
+	padding: 1em 0;
 	color: white;
 }
 	h1 a {

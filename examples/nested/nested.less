@@ -12,6 +12,9 @@
 @column-width: 60;
 @gutter-width: 20;
 
+// Remove the definition below for a pixel-based layout
+@total-width: 100%;
+
 
 ////////////
 // LAYOUT //
@@ -25,6 +28,7 @@ div.center {
 
 // header
 header#top {
+	.column(padding);
 	margin-bottom: 1em;
 }
 
