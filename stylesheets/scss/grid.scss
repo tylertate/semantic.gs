@@ -43,15 +43,15 @@ body {
 	@include clearfix();
 }
 
-@mixin row($columns:$columns) {
+@mixin row($c:$columns) {
 	display: block;
-	width: $total-width*(($gutter-width + gridsystem-width($columns))/gridsystem-width($columns));
+	width: $total-width*(($gutter-width + gridsystem-width($c))/gridsystem-width($columns));
 	margin: 0 $total-width*((($gutter-width*.5)/gridsystem-width($columns))*-1);
-	// *width: $total-width*(($gutter-width + gridsystem-width($columns))/gridsystem-width($columns))-$correction;
+	// *width: $total-width*(($gutter-width + gridsystem-width($c))/gridsystem-width($columns))-$correction;
 	// *margin: 0 $total-width*((($gutter-width*.5)/gridsystem-width($columns))*-1)-$correction;
 	@include clearfix();
 }
-@mixin column($x,$columns:$columns) {
+@mixin column($x) {
 	display: inline;
 	float: left;
 	width: $total-width*(((($gutter-width+$column-width)*$x)-$gutter-width) / gridsystem-width($columns));
