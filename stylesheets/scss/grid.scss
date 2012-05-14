@@ -66,8 +66,8 @@ body {
 	// *margin: 0 (.5 * $gutter-width * gridsystem-ratio())-$correction;
 }
 @mixin push($offset:1) {
-	margin-left: (((($gutter-width+$column-width)*$offset) + ($gutter-width*.5)) * gridsystem-ratio());
+	margin-left: ((gridsystem-width($offset) + ($gutter-width*.5)) * gridsystem-ratio());
 }
 @mixin pull($offset:1) {
-	margin-right: (((($gutter-width+$column-width)*$offset) + ($gutter-width*.5)) * gridsystem-ratio());
+	margin-right: ((gridsystem-width($offset) + ($gutter-width*.5)) * gridsystem-ratio());
 }
