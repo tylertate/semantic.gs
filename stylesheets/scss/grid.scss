@@ -60,10 +60,10 @@ body {
 @mixin column($x) {
 	display: inline;
 	float: left;
-	width: (((($gutter-width+$column-width)*$x)-$gutter-width) * gridsystem-ratio());
-	margin: 0 (($gutter-width*.5) * gridsystem-ratio());
-	// *width: (((($gutter-width+$column-width)*$x)-$gutter-width) * gridsystem-ratio())-$correction;
-	// *margin: 0 (($gutter-width*.5) * gridsystem-ratio())-$correction;
+	width: ((gridsystem-width($x)-$gutter-width) * gridsystem-ratio());
+	margin: 0 (.5 * $gutter-width * gridsystem-ratio());
+	// *width: ((gridsystem-width($x)-$gutter-width) * gridsystem-ratio())-$correction;
+	// *margin: 0 (.5 * $gutter-width * gridsystem-ratio())-$correction;
 }
 @mixin push($offset:1) {
 	margin-left: (((($gutter-width+$column-width)*$offset) + ($gutter-width*.5)) * gridsystem-ratio());
