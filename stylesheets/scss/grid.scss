@@ -51,9 +51,9 @@ body {
 
 @mixin row($c:$columns) {
 	display: block;
-	width: (($gutter-width + gridsystem-width($c)) * gridsystem-ratio());
+	width: (gridsystem-width($c) * gridsystem-ratio());
 	margin: 0 (-.5 * $gutter-width * gridsystem-ratio());
-	// *width: (($gutter-width + gridsystem-width($c))*gridsystem-ratio())-$correction;
+	// *width: (gridsystem-width($c) * gridsystem-ratio())-$correction;
 	// *margin: 0 (-.5 * $gutter-width * gridsystem-ratio())-$correction;
 	@include clearfix();
 }
