@@ -13,12 +13,11 @@ $columns: 12;
 }
 
 // Set $total-width to 100% for a fluid layout
-$calculated-width: gridsystem-width($columns);
-$total-width: $calculated-width;
+$total-width: gridsystem-width($columns);
 
 // Convenience function for calculating the $total-width / $calculated-width.
 @function gridsystem-ratio() {
-  @return $total-width / $calculated-width;
+  @return $total-width / gridsystem-width($columns);
 }
 
 // Uncomment these two lines and the star-hack width/margin lines below to enable sub-pixel fix for IE6 & 7. See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
