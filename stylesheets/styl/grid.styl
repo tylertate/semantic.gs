@@ -7,11 +7,18 @@ column-width = 60px
 gutter-width = 20px
 columns = 12
 
-// Utility variable — you should never need to modify this
-_gridsystem-width = (column-width + gutter-width) * columns
+// Utility function
+gridsystem-width(_columns = columns)
+	_columns * (column-width + gutter-width) 
 
 // Set @total-width to 100% for a fluid layout
-total-width = _gridsystem-width
+//total-width = 100%
+
+_total-width(_columns = columns)
+	if total-width is defined
+		total-width
+	else
+		unit(gridsystem-width(_columns), px)
 
 // Correcting percentage-to-pixel rounding errors in IE6 & 7
 // See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
@@ -21,7 +28,7 @@ correction = (((0.5 / min-width) * 100) * 1%)
 
 // The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
 clearfix()
- *zoom:1
+	*zoom:1
 
 	&:before,
 	&:after
@@ -31,7 +38,6 @@ clearfix()
 	&:after
 		clear:both
 
-
 //////////
 // GRID //
 //////////
@@ -40,21 +46,24 @@ body
 	width 100%
 	clearfix()
 
-row(columns = columns)
+row(_columns = columns)
 	display block
-	width total-width * ((gutter-width + _gridsystem-width ) / _gridsystem-width)
-	margin 0 total-width * (((gutter-width * 0.5) / _gridsystem-width ) * - 1)
-	*width total-width * ((gutter-width + _gridsystem-width ) / _gridsystem-width)-correction
-	*margin 0 total-width * (((gutter-width * 0.5) / _gridsystem-width ) * - 1)-correction
+	width _total-width(_columns) * ((gutter-width + gridsystem-width(_columns) ) / gridsystem-width(_columns))
+	margin 0 _total-width(_columns) * (((gutter-width * 0.5) / gridsystem-width(_columns) ) * - 1)
+	*width (_total-width(_columns) * ((gutter-width + gridsystem-width(_columns) ) / gridsystem-width(_columns))) - correction
+	*margin 0 _total-width(_columns) * (((gutter-width * 0.5) / gridsystem-width(_columns) ) * - 1) - correction
+	clearfix()
 
-column(x, columns = columns)
+column(x, _columns = columns)
 	display inline
 	float left
-	overflow hidden
-	width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)
-	margin 0 total-width * ( (gutter-width * 0.5) / _gridsystem-width)
-	*width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)-correction
-	*margin 0 total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction
+	width _total-width(_columns) * ((((gutter-width + column-width ) * x) - gutter-width) / gridsystem-width(_columns))
+	margin 0 _total-width(_columns) * ((gutter-width * 0.5) / gridsystem-width(_columns))
+	*width _total-width(_columns) * ((((gutter-width + column-width ) * x) - gutter-width) / gridsystem-width(_columns)) - correction
+	*margin 0 _total-width(_columns) * ((gutter-width * 0.5) / gridsystem-width(_columns)) - correction
 
-offset(offset = 1)
-	margin-left total-width*(((gutter-width+column-width)*offset + (gutter-width*0.5))/_gridsystem-width)
+push(offset = 1)
+	margin-left _total-width()*(((gutter-width+column-width)*offset + (gutter-width*0.5))/gridsystem-width())
+
+pull(offset = 1)
+	margin-right _total-width()*(((gutter-width+column-width)*offset + (gutter-width*0.5))/gridsystem-width())
