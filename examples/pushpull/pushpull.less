@@ -1,6 +1,6 @@
-@import '../../stylesheets/reset.css';
-@import '../../stylesheets/demo.css';
-@import '../../stylesheets/less/grid.less';
+@import './stylesheets/reset.css';
+@import './stylesheets/demo.css';
+@import './stylesheets/grid.less';
 
 
 //////////
@@ -36,14 +36,14 @@ header#top {
 		// push
 		#push {
 			.column(6,9);
-			.push(3,9);
+			.offset(3,9,push);
 			margin-bottom: 1em;
 		}
 
 		// pull
 		#pull {
 			.column(6,9);
-			.pull(3,9);
+			.offset(3,9,pull);
 			margin-bottom: 1em;
 		}
 	}
