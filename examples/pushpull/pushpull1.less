@@ -1,0 +1,59 @@
+@import './stylesheets/reset.css';
+@import './stylesheets/demo.css';
+@import './stylesheets/grid.less';
+
+
+//////////
+// GRID //
+//////////
+
+// Specify the number of columns and set column and gutter widths
+@columns: 12;
+@column-width: 60;
+@gutter-width: 20;
+
+// Uncomment the definition below for a percentage-based layout
+@total-width: 100%;
+
+
+////////////
+// LAYOUT //
+////////////
+
+// header
+header#top {
+  .column(padding);
+	margin-bottom: 1em;
+}
+
+// main column
+#maincolumn {
+	.column(9);
+
+	section {
+		.row(9);
+
+		// push
+		#push {
+			.column(6,9);
+			.offset(3,9,push);
+			margin-bottom: 1em;
+		}
+
+		// pull
+		#pull {
+			.column(6,9);
+			.offset(3,9,pull);
+			margin-bottom: 1em;
+		}
+	}
+}
+
+// sidebar
+#sidebar {
+	.column(3);
+
+	h2 {
+		height: 13.2em;
+	}
+}
