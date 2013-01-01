@@ -19,7 +19,11 @@
 ////////////
 // LAYOUT //
 ////////////
-
+#page {
+.grid(@width, @columns, @column-width, @gutter-width, @min-width, @max-width);
+	margin: 0 auto;
+	border: 1px solid #333;
+}
 // header
 header#top {
 	.column(padding);
@@ -38,6 +42,9 @@ header#top {
 			.column(6,9);
 			.offset(3,9,push);
 			margin-bottom: 1em;
+			& h2 {
+			background-color:#002050;
+			}
 		}
 
 		// pull
@@ -55,5 +62,5 @@ header#top {
 
 	h2 {
 		height: 13.2em;
-	}
+		}
 }

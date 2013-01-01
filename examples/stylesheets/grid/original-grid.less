@@ -1,28 +1,22 @@
-//////////////////////// 
-// SUB-PIXEL ROUNDING // 
-//////////////////////// See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
-
-@min-width: 960;
-@correction: 0.5 / @min-width * 100 * 1%;
-
 ///////////
 // GRID SPECIFIC CALCULATIONS
 //////////
+
 // gutter widths for the rows
-@row-gutter-width: (@total-width*(((@gutter-width*.5)/@gridsystem-width)*-1))-@correction;
+@row-gutter-width: @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1);
 
 // gutter widths for columns
-@column-gutter-width: (@total-width*((@gutter-width*.5)/@gridsystem-width))-@correction;
+@column-gutter-width: @total-width*((@gutter-width*.5)/@gridsystem-width);
 
 // row-widths
 .row-width(@columns:@columns) { 
-  @calculated-row-width: (@total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width))-@correction;
+	@calculated-row-width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width);
 	width: @calculated-row-width;
 }
 
 // column-widths
 .column-width(@x:@x, @columns:@columns) {
-	@calculated-column-width: (@total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width))-@correction;
+	@calculated-column-width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
 	width: @calculated-column-width;
 }
 
@@ -105,23 +99,23 @@
 // Margin-based push
 .pushpull(@pullpush:@pullpush,@offset-amount:@offset-amount,@gutter-method:@gutter-method) when (@pullpush = push) and (@gutter-method = margin) {
 	padding-left: 0;
-	margin-left: @offset-amount-@correction;
+	margin-left: @offset-amount;
 }
 
 // Padding-based push
 .pushpull(@pullpush:@pullpush,@offset-amount:@offset-amount,@gutter-method:@gutter-method) when (@pullpush = push) and (@gutter-method = padding) {
-	padding-left: @offset-amount-@correction;
+	padding-left: @offset-amount;
 	margin-left: 0;
 }
 
 // Margin-based pull
 .pushpull(@pullpush:@pullpush,@offset-amount:@offset-amount,@gutter-method:@gutter-method) when (@pullpush = pull) and (@gutter-method = margin) {
 	padding-right: 0;
-	margin-right: @offset-amount-@correction;
+	margin-right: @offset-amount;
 }
 
 // Padding-based pull
 .pushpull(@pullpush:@pullpush,@offset-amount:@offset-amount,@gutter-method:@gutter-method) when (@pullpush = pull) and (@gutter-method = padding) {
-	padding-right: @offset-amount-@correction;
+	padding-right: @offset-amount;
 	margin-right: 0;
 }

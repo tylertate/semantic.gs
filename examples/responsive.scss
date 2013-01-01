@@ -1,0 +1,42 @@
+@import '../../stylesheets/reset.css';
+@import '../../stylesheets/demo.css';
+@import '../../stylesheets/scss/grid.scss';
+
+
+//////////
+// GRID //
+//////////
+
+// Specify the number of columns and set column and gutter widths
+$columns: 12;
+$column-width: 60;
+$gutter-width: 20;
+
+// Remove the definition below for a pixel-based layout
+$total-width: 100%;
+
+
+////////////
+// LAYOUT //
+////////////
+
+// header
+header#top {
+	margin-bottom: 1em;
+}
+
+// main column & sidebar
+#maincolumn {
+	@include column(9);
+}
+#sidebar {
+	@include column(3);
+}
+
+@media screen and (max-width: 720px) {
+	#maincolumn,
+	#sidebar {
+		@include column(12);
+		margin-bottom: 1em;
+	}
+}

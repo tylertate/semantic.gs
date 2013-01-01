@@ -1,6 +1,6 @@
-@import '../../stylesheets/reset.css';
-@import '../../stylesheets/demo.css';
-@import '../../stylesheets/less/grid.less';
+@import './stylesheets/reset.css';
+@import './stylesheets/demo.css';
+@import './stylesheets/grid.less';
 
 
 //////////
@@ -20,20 +20,10 @@
 // LAYOUT //
 ////////////
 
-// center the contents
-div.center {
-	max-width: 960px;
-	margin: 0 auto;
-	overflow: hidden;
-}
-
 // header
 header#top {
+	.column(padding);
 	margin-bottom: 1em;
-
-	h1 {
-		.column();
-	}
 }
 
 // main column & sidebar
@@ -42,4 +32,12 @@ header#top {
 }
 #sidebar {
 	.column(3);
+}
+
+@media screen and (max-width: 720px) {
+	#maincolumn,
+	#sidebar {
+		.column(12);
+		margin-bottom: 1em;
+	}
 }

@@ -1,6 +1,6 @@
-@import '../../stylesheets/reset.css';
-@import '../../stylesheets/demo.css';
-@import '../../stylesheets/less/grid.less';
+@import './stylesheets/reset.css';
+@import './stylesheets/demo.css';
+@import './stylesheets/grid.less';
 
 
 //////////
@@ -12,8 +12,8 @@
 @column-width: 60;
 @gutter-width: 20;
 
-// Uncomment the definition below for a percentage-based layout
-// @total-width: 100%;
+// Remove the definition below for a pixel-based layout
+@total-width: 100%;
 
 
 ////////////
@@ -22,21 +22,31 @@
 
 // center the contents
 div.center {
-	width: @total-width;
 	margin: 0 auto;
 	overflow: hidden;
 }
 
 // header
 header#top {
-	.column();
+	.column(padding);
 	margin-bottom: 1em;
 }
 
-// main and sidebar
+// main column
 #maincolumn {
 	.column(9);
+	
+	ul#boxes {
+		.row(9);
+
+		li {
+			.column(3,9);
+			margin-bottom: 1em;
+		}
+	}
 }
+
+// sidebar
 #sidebar {
 	.column(3);
 }
