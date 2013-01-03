@@ -20,7 +20,7 @@
 // LAYOUT //
 ////////////
 #page {
-.grid(@width, @columns, @column-width, @gutter-width, @min-width, @max-width);
+.widths(@width, @min-width, @max-width);
 	margin: 0 auto;
 }
 // header
@@ -59,4 +59,7 @@ header#top {
 	h2 {
 		height: 13.2em;
 		}
+}
+footer {
+	.column(12);
 }
