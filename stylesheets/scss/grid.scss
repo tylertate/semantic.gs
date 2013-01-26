@@ -1,11 +1,11 @@
-/////////////////
-// Semantic.gs // for SCSS: http://sass-lang.com/
-/////////////////
+//////////////////////////////////////////////////
+// Semantic.gs for SCSS: http://sass-lang.com/ //
+////////////////////////////////////////////////
 
 // Defaults which you can freely override
-$column-width: 60px;
-$gutter-width: 20px;
-$columns: 12;
+$column-width: 60px !default;
+$gutter-width: 20px !default;
+$columns: 12 !default;
 
 // Utility function — you should never need to modify this
 @function gridsystem-width($columns:$columns) {
@@ -13,11 +13,13 @@ $columns: 12;
 }
 
 // Set $total-width to 100% for a fluid layout
-$total-width: gridsystem-width($columns);
+$total-width: gridsystem-width($columns) !default;
 
-// Uncomment these two lines and the star-hack width/margin lines below to enable sub-pixel fix for IE6 & 7. See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
-// $min-width: 999999;
-// $correction: 0.5 / $min-width * 100;
+// Add support to IE6 & 7.
+$iesupport: false !default;
+// Enable sub-pixel fix for IE6 & 7. See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
+$min-width: 999999 !default;
+$correction: 0.5 / $min-width * 100 !default;
 
 // The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
 @mixin clearfix() {
@@ -47,8 +49,12 @@ body {
 	display: block;
 	width: $total-width*(($gutter-width + gridsystem-width($columns))/gridsystem-width($columns));
 	margin: 0 $total-width*((($gutter-width*.5)/gridsystem-width($columns))*-1);
-	// *width: $total-width*(($gutter-width + gridsystem-width($columns))/gridsystem-width($columns))-$correction;
-	// *margin: 0 $total-width*((($gutter-width*.5)/gridsystem-width($columns))*-1)-$correction;
+
+	@if $iesupport {
+		*width: $total-width*(($gutter-width + gridsystem-width($columns))/gridsystem-width($columns))-$correction;
+		*margin: 0 $total-width*((($gutter-width*.5)/gridsystem-width($columns))*-1)-$correction;
+	}
+
 	@include clearfix();
 }
 @mixin column($x,$columns:$columns) {
@@ -56,8 +62,11 @@ body {
 	float: left;
 	width: $total-width*(((($gutter-width+$column-width)*$x)-$gutter-width) / gridsystem-width($columns));
 	margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns));
-	// *width: $total-width*(((($gutter-width+$column-width)*$x)-$gutter-width) / gridsystem-width($columns))-$correction;
-	// *margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns))-$correction;
+
+	@if $iesupport {
+		*width: $total-width*(((($gutter-width+$column-width)*$x)-$gutter-width) / gridsystem-width($columns))-$correction;
+		*margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns))-$correction;
+	}
 }
 @mixin push($offset:1) {
 	margin-left: $total-width*((($gutter-width+$column-width)*$offset) / gridsystem-width($columns)) + $total-width*(($gutter-width*.5)/gridsystem-width($columns));
