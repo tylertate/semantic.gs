@@ -41,6 +41,10 @@ body {
 	.clearfix;
 }
 
+.container {
+        margin: 0 (100% - @total-width) / 2;
+}
+
 .row(@columns:@columns) {
 	display: block;
 	width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width);

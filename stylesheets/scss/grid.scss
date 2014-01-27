@@ -43,6 +43,10 @@ body {
 	@include clearfix();
 }
 
+@mixin container {
+        margin: 0 (100% - @total-width) / 2;
+}
+
 @mixin row($columns:$columns) {
 	display: block;
 	width: $total-width*(($gutter-width + gridsystem-width($columns))/gridsystem-width($columns));
