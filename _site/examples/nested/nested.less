@@ -1,0 +1,51 @@
+@import '../../stylesheets/reset.css';
+@import '../../stylesheets/demo.css';
+@import '../../stylesheets/less/grid.less';
+
+
+//////////
+// GRID //
+//////////
+
+// Specify the number of columns and set column and gutter widths
+@columns: 12;
+@column-width: 60;
+@gutter-width: 20;
+
+// Remove the definition below for a pixel-based layout
+@total-width: 100%;
+
+
+////////////
+// LAYOUT //
+////////////
+
+// center the contents
+div.center {
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+// header
+header#top {
+	margin-bottom: 1em;
+}
+
+// main column
+#maincolumn {
+	.column(9);
+	
+	ul#boxes {
+		.row(9);
+
+		li {
+			.column(3,9);
+			margin-bottom: 1em;
+		}
+	}
+}
+
+// sidebar
+#sidebar {
+	.column(3);
+}

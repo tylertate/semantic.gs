@@ -1,0 +1,29 @@
+@import '../../stylesheets/reset.css';
+
+@import '../../stylesheets/demo.css';
+body {
+  width: 100%;
+  *zoom: 1;
+}
+body:before, body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+header#top {
+  margin-bottom: 1em;
+}
+#maincolumn {
+  display: inline;
+  float: left;
+  width: 72.91666666666666%;
+  margin: 0 1.0416666666666665%;
+}
+#sidebar {
+  display: inline;
+  float: left;
+  width: 22.916666666666664%;
+  margin: 0 1.0416666666666665%;
+}

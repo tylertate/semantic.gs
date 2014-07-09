@@ -1,0 +1,29 @@
+header#top {
+	background-color: black;
+}
+h1 {
+	font-family: Georgia;
+	font-size: 2em;
+	padding: 1em;
+	color: white;
+}
+	h1 a {
+		color: white;
+		text-decoration: none;
+	}
+h2 {
+	font-family: Georgia;
+	font-size: 1.5em;
+	padding: 5.25em 0;
+	color: #666;
+	background-color: #ccc;
+	text-align: center;
+}
+ul#boxes li {
+	font-family: Georgia;
+	font-size: 1.33em;
+	padding: 2.5em 0;
+	color: #999;
+	background-color: #e5e5e5;
+	text-align: center;
+}

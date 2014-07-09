@@ -1,0 +1,465 @@
+@import 'reset.css';
+body {
+  width: 100%;
+  *zoom: 1;
+}
+body:before, body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+.center {
+  max-width: 1200px;
+  min-width: 960px;
+  padding: 0 20px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+body {
+  font-family: Helvetica, Arial sans-serif;
+  font-size: 1em;
+  -webkit-text-size-adjust: none;
+}
+h1, h2, h3 {
+  font-family: Georgia;
+  font-weight: bold;
+  margin: 1.5em 0 0.5em 0;
+}
+pre, code {
+  font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace;
+}
+pre, .example {
+  background-color: #e5e5e5;
+  padding: 1em;
+  margin-bottom: 1.5em;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+pre em, .example em {
+  font-style: normal;
+  font-weight: bold;
+}
+pre span, .example span {
+  color: #999;
+}
+pre ol,
+.example ol,
+pre ul,
+.example ul {
+  margin-left: 1.5em;
+}
+div#top {
+  background-color: black;
+  padding: 0.5em 0;
+}
+header#hero {
+  position: relative;
+  background: black url('../images/bg-texture.jpg') repeat;
+  color: white;
+  overflow: visible;
+  padding-bottom: 2em;
+  z-index: 50;
+}
+a#github-ribbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 149px;
+  height: 149px;
+  border: 0;
+  z-index: 51;
+  background: transparent url('../images/github-ribbon.png') no-repeat;
+}
+section#overview {
+  display: inline;
+  float: left;
+  width: 47.91666666666667%;
+  margin: 0 1.0416666666666665%;
+}
+section#overview h1 {
+  margin: 1.25em 0 0.75em 0;
+  font-size: 4em;
+  text-align: center;
+}
+section#overview h1 span {
+  display: block;
+  font-size: 0.4em;
+  font-weight: normal;
+}
+section#overview h1 span.the {
+  font-style: italic;
+  letter-spacing: 0.33em;
+}
+section#overview h1 span.gridsystem {
+  text-transform: uppercase;
+  margin-top: 0.25em;
+}
+section#overview blockquote p {
+  display: block;
+  color: white;
+  text-align: center;
+  font-size: 1.5em;
+  margin: 1.25em 0;
+}
+section#overview p {
+  font-family: Georgia;
+  font-size: 1.3em;
+  line-height: 1.2em;
+  color: #ccc;
+  margin-bottom: 0.75em;
+}
+section#overview p strong {
+  color: white;
+}
+section#overview p em {
+  font-style: italic;
+}
+section#overview p a {
+  color: white;
+}
+section#example {
+  display: inline;
+  float: left;
+  width: 47.91666666666667%;
+  margin: 0 1.0416666666666665%;
+  padding-top: 2em;
+}
+section#example h3 {
+  font-size: 1.5em;
+  font-weight: normal;
+}
+section#example pre {
+  background-color: rgba(51, 51, 51, 0.9);
+}
+nav {
+  position: relative;
+  margin: -2em 0;
+  z-index: 75;
+}
+nav div#download {
+  display: inline;
+  float: left;
+  width: 47.91666666666667%;
+  margin: 0 1.0416666666666665%;
+  text-align: center;
+}
+nav div#download a {
+  display: inline-block;
+  padding: 1em 2em;
+  background: #ffbd37;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffcd67), to(#ffac06));
+  background: -moz-linear-gradient(#ffcd67, #ffac06);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffcd67, endColorstr=#ffac06);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffcd67, endColorstr=#ffac06)";
+  zoom: 1;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  font-size: 1.33em;
+  color: #7f5400;
+  text-shadow: 0 1px 0 rgba(250, 250, 250, 0.66);
+  text-decoration: none;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+nav div#download a:hover {
+  background: #ffc756;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffe1a6), to(#ffac06));
+  background: -moz-linear-gradient(#ffe1a6, #ffac06);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffe1a6, endColorstr=#ffac06);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffe1a6, endColorstr=#ffac06)";
+  zoom: 1;
+}
+nav div#download a:active {
+  background: #ecaf34;
+  background: -webkit-gradient(linear, left top, left bottom, from(#d99100), to(#ffcd67));
+  background: -moz-linear-gradient(#d99100, #ffcd67);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#d99100, endColorstr=#ffcd67);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#d99100, endColorstr=#ffcd67)";
+  zoom: 1;
+  text-shadow: 0 -1px 0 rgba(250, 250, 250, 0.5);
+}
+article#documentation {
+  position: relative;
+  display: inline;
+  float: left;
+  width: 81.25%;
+  margin: 0 1.0416666666666665%;
+  z-index: 25;
+}
+article#documentation ul#examples {
+  display: inline-block;
+  width: 102.49999999999999%;
+  margin: 0 -1.25%;
+  *zoom: 1;
+}
+article#documentation ul#examples:before, article#documentation ul#examples:after {
+  content: "";
+  display: table;
+}
+article#documentation ul#examples:after {
+  clear: both;
+}
+article#documentation ul#examples li {
+  display: inline;
+  float: left;
+  width: 17.5%;
+  margin: 0 1.25%;
+}
+article#documentation ul#examples li a {
+  display: block;
+  padding: 2em 0;
+  margin-top: 1em;
+  font-size: 1.05em;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px 0 white;
+  background-color: #f0f0f0;
+  color: #666;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+article#documentation ul#examples li a:hover {
+  background-color: #e5e5e5;
+}
+article#documentation h2 {
+  font-size: 2.25em;
+  margin: 2em 0 0 0;
+  font-style: italic;
+  text-align: center;
+  padding: 0.5em 0;
+  border-bottom: 1px dashed #ccc;
+}
+article#documentation h3 {
+  clear: both;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+article#documentation h5 {
+  margin-left: 2em;
+  margin-top: -1em;
+  font-size: 0.9em;
+}
+article#documentation .h5 {
+  margin-left: 2em;
+  margin-bottom: 2em;
+  font-size: 0.9em;
+}
+article#documentation ul.h5 {
+  margin-top: -1em;
+  margin-left: 5em;
+}
+article#documentation p {
+  margin-bottom: 1.5em;
+  line-height: 1.3em;
+  font-size: 0.95em;
+}
+aside#advert {
+  display: inline;
+  float: left;
+  width: 14.583333333333334%;
+  margin: 0 1.0416666666666665%;
+}
+aside#advert .ad {
+  margin: 4.7em 0 0 0;
+  float: right;
+}
+footer#bottom {
+  background: black url('../images/bg-texture.jpg') repeat;
+  color: #fff;
+  margin-top: 6em;
+  padding: 2em 0;
+  text-align: center;
+  line-height: 1.3em;
+}
+footer#bottom a {
+  color: white;
+}
+body .adpacks {
+  background: #fff;
+  padding: 15px;
+  margin: 15px 0 0;
+  border: 3px solid #eee;
+}
+body .one .bsa_it_ad {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  padding: 0 15px 0 10px;
+  width: 130px;
+  text-align: left;
+}
+body .one .bsa_it_ad .bsa_it_i {
+  display: block;
+  padding: 0;
+  float: none;
+  margin: 0 0 5px;
+}
+body .one .bsa_it_ad .bsa_it_i img {
+  padding: 0;
+  border: none;
+}
+body .one .bsa_it_ad .bsa_it_t {
+  padding: 6px 0 0 0;
+}
+body .one .bsa_it_p {
+  display: none;
+}
+body #bsap_aplink, body #bsap_aplink:hover {
+  display: block;
+  font-size: 10px;
+  margin: 8px 12px 0;
+  text-align: left;
+}
+@media screen and (max-device-width: 1024px) and (orientation:portrait) {
+  .center {
+    min-width: 0;
+  }
+  section#overview {
+    display: inline;
+    float: left;
+    width: 97.91666666666666%;
+    margin: 0 1.0416666666666665%;
+  }
+  section#overview h1 {
+    margin-top: 1em;
+  }
+  section#overview p {
+    display: inline;
+  }
+  section#example {
+    display: inline;
+    float: left;
+    width: 97.91666666666666%;
+    margin: 0 1.0416666666666665%;
+    padding-top: 0;
+  }
+  nav div#download {
+    display: inline;
+    float: left;
+    width: 97.91666666666666%;
+    margin: 0 1.0416666666666665%;
+  }
+  article#documentation {
+    display: inline;
+    float: left;
+    width: 97.91666666666666%;
+    margin: 0 1.0416666666666665%;
+  }
+  article#documentation ul#examples li {
+    display: inline;
+    float: left;
+    width: 30.829999999999995%;
+    margin: 0 1.25%;
+  }
+  aside#advert {
+    display: none;
+  }
+}
+@media screen and (max-device-width: 1024px) and (orientation:landscape) {
+  section#overview p {
+    font-size: 1.2em;
+  }
+}
+@media screen and (max-device-width: 480px) and (orientation:landscape) {
+  .center {
+    min-width: 0;
+  }
+  section#overview {
+    display: inline;
+    float: left;
+    width: 97.91666666666666%;
+    margin: 0 1.0416666666666665%;
+  }
+  section#overview h1 {
+    margin: 0.66em 0;
+  }
+  section#overview p {
+    font-size: 1em;
+  }
+  section#example {
+    display: inline;
+    float: left;
+    width: 97.91666666666666%;
+    margin: 0 1.0416666666666665%;
+    padding-top: 0;
+  }
+  nav div#download {
+    display: inline;
+    float: left;
+    width: 97.91666666666666%;
+    margin: 0 1.0416666666666665%;
+  }
+  article#documentation {
+    display: inline;
+    float: left;
+    width: 97.91666666666666%;
+    margin: 0 1.0416666666666665%;
+  }
+  article#documentation ul#examples li {
+    display: inline;
+    float: left;
+    width: 47.91666666666667%;
+    margin: 0 1.0416666666666665%;
+  }
+  aside#advert {
+    display: none;
+  }
+}
+@media screen and (max-device-width: 480px) and (orientation:portrait) {
+  .center {
+    min-width: 0;
+  }
+  a#github-ribbon {
+    display: none;
+  }
+  section#overview {
+    display: inline;
+    float: left;
+    width: 97.91666666666666%;
+    margin: 0 1.0416666666666665%;
+  }
+  section#overview h1 {
+    margin: 0.66em 0;
+    font-size: 3em;
+  }
+  section#overview p {
+    font-size: 1em;
+  }
+  section#example {
+    display: inline;
+    float: left;
+    width: 97.91666666666666%;
+    margin: 0 1.0416666666666665%;
+    padding-top: 0;
+  }
+  nav div#download {
+    display: inline;
+    float: left;
+    width: 97.91666666666666%;
+    margin: 0 1.0416666666666665%;
+  }
+  article#documentation {
+    display: inline;
+    float: left;
+    width: 97.91666666666666%;
+    margin: 0 1.0416666666666665%;
+  }
+  article#documentation ul#examples li {
+    display: inline;
+    float: left;
+    width: 47.91666666666667%;
+    margin: 0 1.0416666666666665%;
+  }
+  article#documentation h2 {
+    font-size: 1.66em;
+    margin-bottom: -0.66em;
+  }
+  aside#advert {
+    display: none;
+  }
+}
