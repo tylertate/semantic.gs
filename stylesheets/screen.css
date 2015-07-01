@@ -185,8 +185,6 @@ nav div#download a:active {
 article#documentation {
   position: relative;
   display: inline;
-  float: left;
-  width: 81.25%;
   margin: 0 1.0416666666666665%;
   z-index: 25;
 }
@@ -257,16 +255,6 @@ article#documentation p {
   margin-bottom: 1.5em;
   line-height: 1.3em;
   font-size: 0.95em;
-}
-aside#advert {
-  display: inline;
-  float: left;
-  width: 14.583333333333334%;
-  margin: 0 1.0416666666666665%;
-}
-aside#advert .ad {
-  margin: 4.7em 0 0 0;
-  float: right;
 }
 footer#bottom {
   background: black url('../images/bg-texture.jpg') repeat;
