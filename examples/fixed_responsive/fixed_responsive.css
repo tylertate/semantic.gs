@@ -1,0 +1,34 @@
+@import url(../../stylesheets/reset.css);
+@import url(../../stylesheets/demo.css);
+body {
+  width: 100%;
+  *zoom: 1; }
+  body:before, body:after {
+    content: "";
+    display: table; }
+  body:after {
+    clear: both; }
+
+header#top {
+  margin-bottom: 1em; }
+
+#maincolumn {
+  display: inline;
+  float: left;
+  width: 700px;
+  margin: 0 10px; }
+
+#sidebar {
+  display: inline;
+  float: left;
+  width: 220px;
+  margin: 0 10px; }
+
+@media screen and (max-width: 960px) {
+  #maincolumn,
+  #sidebar {
+    display: inline;
+    float: left;
+    width: 97.917%;
+    margin: 0 1.042%;
+    margin-bottom: 1em; } }
