@@ -1,0 +1,15 @@
+{
+  "name": "twigkit/semantic.gs",
+  "version": "1.0.0",
+  "main": "js/less-1.1.3.min.js",
+  "description": "The Semantic Grid System is a modern approach to the CSS grid. It allows you to set column and gutter widths, choose the number of columns, switch between pixels and percentages, and achieve responsive layouts, all without any unsemantic .grid_x classes in your markup. By default it's powered by LESS.",
+  "license": "Licensed under Apache 2.0.",
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
