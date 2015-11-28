@@ -1,0 +1,27 @@
+{
+  "name": "semantic.gs",
+  "version": "1.3.1",
+  "description": "The Semantic CSS Grid: Page Layout for Tomorrow",
+  "directories": {
+    "example": "examples"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tylertate/semantic.gs.git"
+  },
+  "keywords": [
+    "semantic",
+    "grid",
+    "layout",
+    "css",
+    "less",
+    "sass",
+    "stylus"
+  ],
+  "author": "Tyler Tate <tyler@tylertate.com>",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/tylertate/semantic.gs/issues"
+  },
+  "homepage": "https://github.com/tylertate/semantic.gs"
+}
