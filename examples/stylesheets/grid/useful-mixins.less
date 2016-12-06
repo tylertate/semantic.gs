@@ -1,0 +1,56 @@
+// USEFUL LESS MIXINS FOR SEMANTIC.GS
+// Calculations
+
+// Utility variable - you should never need to modify this
+@gridsystem-width: (@column-width*@columns) + (@gutter-width*@columns) * 1px;
+
+// Set @total-width to 100% for a fluid layout
+@total-width: @gridsystem-width;
+
+///////////////////////////
+// GRID MIXIN // Sean Steindl aka http://github.com/laughingwithu
+///////////////////////// 
+// a grid mixin, allows an element (usually body or some other wrapper) to become a grid container with the values from above or as specified by the user
+.widths(@width, @min-width, @max-width) {
+  width: @width;
+  min-width: @min-width;
+  max-width: @max-width;
+  .clearfix();
+}
+
+////////////////////
+// MICRO CLEARFIX // http://nicolasgallagher.com/micro-clearfix-hack/
+////////////////////
+
+.clearfix() {
+	*zoom:1;
+	
+	&:before,
+	&:after {
+	    content:"";
+	    display:table;
+	}
+	&:after {
+	    clear:both;
+	}
+}
+
+///////////////////////////
+// EQUAL HEIGHT COLUMNS // Sean Steindl aka http://github.com/laughingwithu
+///////////////////////// 
+// wrap parent of equal height column
+.grid_col_equal_wrap() {
+	overflow: hidden; 
+    display:block;
+	position:relative;
+}
+// make this an equal height column
+.grid_col_equal() {
+	padding-bottom:32767px;
+    margin-bottom:-32767px;	
+}
+// remove equal height column (may be useful particuarly for sub items)
+.grid_col_equal_remove() {
+	padding-bottom: 0;
+	margin-bottom: 0;
+}

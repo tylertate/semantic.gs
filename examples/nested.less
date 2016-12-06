@@ -1,6 +1,6 @@
-@import '../../stylesheets/reset.css';
-@import '../../stylesheets/demo.css';
-@import '../../stylesheets/scss/grid.scss';
+@import './stylesheets/reset.css';
+@import './stylesheets/demo.css';
+@import './stylesheets/grid.less';
 
 
 //////////
@@ -8,12 +8,12 @@
 //////////
 
 // Specify the number of columns and set column and gutter widths
-$columns: 12;
-$column-width: 60;
-$gutter-width: 20;
+@columns: 12;
+@column-width: 60;
+@gutter-width: 20;
 
 // Remove the definition below for a pixel-based layout
-$total-width: 100%;
+@total-width: 100%;
 
 
 ////////////
@@ -22,20 +22,31 @@ $total-width: 100%;
 
 // center the contents
 div.center {
-	max-width: 960px;
 	margin: 0 auto;
 	overflow: hidden;
 }
 
 // header
 header#top {
+	.column(padding);
 	margin-bottom: 1em;
 }
 
-// main column & sidebar
+// main column
 #maincolumn {
-	@include column(9);
+	.column(9);
+	
+	ul#boxes {
+		.row(9);
+
+		li {
+			.column(3,9);
+			margin-bottom: 1em;
+		}
+	}
 }
+
+// sidebar
 #sidebar {
-	@include column(3);
+	.column(3);
 }

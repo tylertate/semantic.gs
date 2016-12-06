@@ -1,0 +1,121 @@
+///////////
+// GRID SPECIFIC CALCULATIONS
+//////////
+
+// gutter widths for the rows
+@row-gutter-width: @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1);
+
+// gutter widths for columns
+@column-gutter-width: @total-width*((@gutter-width*.5)/@gridsystem-width);
+
+// row-widths
+.row-width(@columns:@columns) { 
+	@calculated-row-width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width);
+	width: @calculated-row-width;
+}
+
+// column-widths
+.column-width(@x:@x, @columns:@columns) {
+	@calculated-column-width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
+	width: @calculated-column-width;
+}
+
+//////////
+// ROWS //
+//////////
+// Margin-based rows
+.row(@columns:@columns,@gutter-method:@gutter-method) when (@gutter-method = margin) {
+	display: block;
+	.row-width(@columns);
+	margin-left: @row-gutter-width;
+	margin-right: @row-gutter-width;
+	.clearfix;
+}
+
+// Padding-based rows
+.row(@columns:@columns,@gutter-method:@gutter-method) when (@gutter-method = padding) {
+	display: block;
+	.row-width(@columns);
+	padding-left: @row-gutter-width;
+	padding-right: @row-gutter-width;
+	.clearfix;
+}
+
+/////////////
+// COLUMNS //
+/////////////
+
+// Margin-based column - specified width
+.column(@x,@columns:@columns,@gutter-method:@gutter-method) when (@gutter-method = margin) {
+	display: inline;
+	float: left;
+	.column-width(@x, @columns);
+	margin-left: @column-gutter-width;
+	margin-right: @column-gutter-width;
+}
+
+// Margin-based column - unspecified width
+.column(@gutter-method:@gutter-method) when (@gutter-method = margin) {
+	display: block;
+	float: none;
+	width: auto;
+	padding-left: 0;
+	padding-right: 0;
+	margin-left: @column-gutter-width;
+	margin-right: @column-gutter-width;
+}
+
+// Padding-based column - specified width
+.column(@x,@columns:@columns,@gutter-method:@gutter-method) when (@gutter-method = padding) {
+	display: inline;
+	float: left;
+	.column-width(@x, @columns);
+	padding-left: @column-gutter-width;
+	padding-right: @column-gutter-width;
+}
+
+// Padding-based column - unspecified width 
+.column(@gutter-method:@gutter-method) when (@gutter-method = padding) {
+	display: block;
+	float: none;
+	width: auto;
+	padding-left: @column-gutter-width;
+	padding-right: @column-gutter-width;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+
+/////////////////
+// PUSH / PULL //
+/////////////////
+
+.offset(@offset:1,@columns:@columns,@pullpush:@pullpush,@gutter-method:@gutter-method)  {
+	@calculated-column-width: @total-width*((((@gutter-width+@column-width)*@offset)-@gutter-width) / @gridsystem-width);
+	@offset-amount:@calculated-column-width+(@column-gutter-width*3);
+	.pushpull(@pullpush,@offset-amount,@gutter-method);
+}
+
+// Margin-based push
+.pushpull(@pullpush:@pullpush,@offset-amount:@offset-amount,@gutter-method:@gutter-method) when (@pullpush = push) and (@gutter-method = margin) {
+	padding-left: 0;
+	margin-left: @offset-amount;
+}
+
+// Padding-based push
+.pushpull(@pullpush:@pullpush,@offset-amount:@offset-amount,@gutter-method:@gutter-method) when (@pullpush = push) and (@gutter-method = padding) {
+	padding-left: @offset-amount;
+	margin-left: 0;
+}
+
+// Margin-based pull
+.pushpull(@pullpush:@pullpush,@offset-amount:@offset-amount,@gutter-method:@gutter-method) when (@pullpush = pull) and (@gutter-method = margin) {
+	padding-right: 0;
+	margin-right: @offset-amount;
+}
+
+// Padding-based pull
+.pushpull(@pullpush:@pullpush,@offset-amount:@offset-amount,@gutter-method:@gutter-method) when (@pullpush = pull) and (@gutter-method = padding) {
+	padding-right: @offset-amount;
+	margin-right: 0;
+}
